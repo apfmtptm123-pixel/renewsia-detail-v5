@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1000">
+<title>리뉴시아 상세페이지 v5 실버 (Figma 가져오기용)</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&amp;family=Cormorant+Garamond:wght@600&amp;display=swap">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1000px;background:#EAEEF7;scrollbar-width:none}
+::-webkit-scrollbar{display:none}
+body{margin:0;font-family:Pretendard,sans-serif;color:#132016;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-x:hidden}
+img{display:block}
+section{width:1000px;position:relative;overflow:hidden}
+
+/* ---------- tokens ---------- */
+.pd{--L1:#F3F7FB;--L2:#EAEEF7;--D:#132016;--D2:#0D170F;--ac:#4C8C3E;--acD:#A6D196;--ink:#132016;--ink2:#3E4A42;--mu:#6B7A70;--cr:#8C2341;--line:rgba(19,32,22,.12);--lineD:rgba(255,255,255,.14);text-align:center}
+.pd.L{background:var(--L2);color:var(--ink)}
+.pd.D{background:var(--D);color:#fff}
+.pd.LD{color:var(--ink)}
+.pd.DL{color:#fff}
+.pd .wrap{position:relative;z-index:2}
+.pd .lab{display:flex;align-items:center;justify-content:center;gap:20px;font-size:21px;font-weight:600;letter-spacing:.3em;margin-right:-.3em;text-transform:uppercase;color:var(--ac)}
+.pd .lab i{display:block;width:48px;height:1px;background:currentColor;opacity:.5}
+.pd .on-d .lab,.pd.D .lab{color:var(--acD)}
+.pd .l1{font-size:52px;font-weight:400;letter-spacing:-.045em;line-height:1.3;margin-top:34px}
+.pd .hh{font-size:72px;font-weight:800;letter-spacing:-.055em;line-height:1.22;margin-top:6px}
+.pd .ac{color:var(--ac)}
+.pd .on-d .ac,.pd.D .ac{color:var(--acD)}
+.pd .lead{font-size:31px;line-height:1.65;letter-spacing:-.035em;color:var(--ink2);margin-top:30px}
+.pd .on-d .lead,.pd.D .lead{color:rgba(255,255,255,.74)}
+.pd .fn{width:860px;margin:36px auto 0;text-align:left;font-size:22px;line-height:1.65;letter-spacing:-.02em;color:var(--mu)}
+.pd .on-d .fn,.pd.D .fn{color:rgba(255,255,255,.5)}
+.pd .vl{width:1px;height:64px;background:rgba(19,32,22,.2);margin:48px auto}
+.pd .on-d .vl,.pd.D .vl{background:rgba(255,255,255,.25)}
+.pd .card{width:860px;margin:0 auto;background:#fff;border-radius:32px;box-shadow:0 18px 50px rgba(40,60,100,.07);text-align:left}
+.pd .cardD{width:860px;margin:0 auto;background:rgba(255,255,255,.05);border:1px solid var(--lineD);border-radius:32px;text-align:left}
+.pd .cap{position:absolute;font-size:18px;color:rgba(19,32,22,.45);letter-spacing:-.01em;z-index:3}
+.pd .cap.w{color:rgba(255,255,255,.45)}
+
+/* ---------- 01 official ---------- */
+#s01{padding:76px 0 80px}
+#s01 .t{font-size:48px;font-weight:800;letter-spacing:-.05em;margin-top:22px}
+#s01 .p{font-size:28px;line-height:1.65;color:rgba(255,255,255,.7);letter-spacing:-.03em;margin-top:18px}
+
+/* ---------- 04 USP ---------- */
+#s04{background:linear-gradient(180deg,var(--L2) 0,var(--L2) 520px,#2B3A30 860px,var(--D) 1040px,var(--D) 100%);padding:140px 0 150px}
+#s04 .box{position:relative;height:700px;margin-top:40px}
+#s04 .box img{position:absolute;left:50%;top:20px;height:600px;transform:translateX(-50%) rotate(-4deg);filter:drop-shadow(0 40px 50px rgba(0,0,0,.35))}
+#s04 .box .glow{position:absolute;left:50%;top:600px;width:520px;height:70px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(0,0,0,.45),rgba(0,0,0,0) 70%)}
+#s04 .list{width:860px;margin:40px auto 0;border-top:1px solid var(--lineD)}
+#s04 .row{display:flex;gap:30px;align-items:center;padding:40px 6px;border-bottom:1px solid var(--lineD);text-align:left}
+#s04 .row .n{font-size:30px;font-weight:300;color:var(--acD);width:56px;flex:none;font-variant-numeric:tabular-nums}
+#s04 .row .t{font-size:34px;font-weight:700;letter-spacing:-.045em;line-height:1.35}
+#s04 .row .s{font-size:24px;color:rgba(255,255,255,.55);margin-top:8px;letter-spacing:-.02em}
+#s04 .row .tg{margin-left:auto;font-size:17px;letter-spacing:.2em;color:rgba(255,255,255,.4);flex:none}
+
+/* ---------- 05 checklist ---------- */
+#s05{background:linear-gradient(180deg,var(--D) 0,var(--D) 1250px,#3A4A40 1430px,var(--L2) 1640px,var(--L2) 100%);padding:140px 0 150px}
+#s05 .hh .en{font-weight:800;letter-spacing:-.02em}
+#s05 .items{width:860px;margin:64px auto 0;display:flex;flex-direction:column;gap:18px}
+#s05 .it{display:flex;align-items:center;gap:26px;padding:34px 40px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid var(--lineD);text-align:left;font-size:32px;letter-spacing:-.04em;line-height:1.4;color:rgba(255,255,255,.88)}
+#s05 .it b{color:var(--acD);font-weight:800}
+#s05 .it .ck{width:44px;height:44px;border-radius:50%;flex:none;border:2px solid var(--acD);position:relative}
+#s05 .it .ck::after{content:'';position:absolute;left:13px;top:8px;width:11px;height:19px;border:solid var(--acD);border-width:0 3px 3px 0;transform:rotate(45deg)}
+#s05 .src{width:860px;margin:18px auto 0;text-align:right;font-size:20px;color:rgba(255,255,255,.4)}
+#s05 .end{margin-top:300px;color:var(--ink)}
+#s05 .end .q{font-size:56px;font-weight:800;letter-spacing:-.05em;line-height:1.35}
+#s05 .end .q .ac{color:var(--ac)}
+
+/* ---------- 06 experts ---------- */
+#s06{padding:140px 0 150px}
+#s06 .role{position:relative;margin-top:110px}
+#s06 .role .ph{position:relative;width:1000px;height:820px}
+#s06 .role .ph img{width:1000px;height:820px;object-fit:cover;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 90px,#000 520px,rgba(0,0,0,.5) 700px,rgba(0,0,0,0) 820px);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 90px,#000 520px,rgba(0,0,0,.5) 700px,rgba(0,0,0,0) 820px)}
+#s06 .role .ph .cap{right:40px;top:540px}
+#s06 .role .ph .cap.left{right:auto;left:40px}
+#s06 .role .tx{position:relative;margin-top:-150px}
+#s06 .pill{display:inline-flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:12px 28px;font-size:26px;font-weight:700;box-shadow:0 8px 24px rgba(40,60,100,.08)}
+#s06 .pill em{font-style:normal;font-size:18px;font-weight:600;letter-spacing:.2em;color:var(--ac)}
+#s06 .role .l1{font-size:56px;margin-top:30px}
+#s06 .role .l2{font-size:70px;font-weight:800;letter-spacing:-.05em;color:var(--ac);line-height:1.22;margin-top:4px}
+#s06 .card{margin-top:56px;padding:12px 56px}
+#s06 .pp{padding:30px 0;border-bottom:1px solid var(--line)}
+#s06 .pp:last-child{border-bottom:0}
+#s06 .pp .j{font-family:'Noto Serif KR',Georgia,serif;font-style:italic;font-size:22px;font-weight:600;color:var(--ac)}
+#s06 .pp .j b{font-style:normal;font-family:Pretendard,sans-serif;font-weight:700;color:#fff;background:var(--ac);border-radius:6px;padding:2px 10px;margin-left:10px;font-size:18px;vertical-align:2px}
+#s06 .pp .v{font-size:31px;font-weight:700;letter-spacing:-.04em;line-height:1.45;margin-top:10px}
+#s06 .pp .k{font-size:27px;font-weight:600;color:var(--ink2);letter-spacing:-.035em;line-height:1.5;margin-top:6px}
+#s06 .pp .k em{font-style:normal;color:var(--ac);font-weight:800}
+#s06 .pp .pm{font-size:19px;color:#8A968E;margin-top:8px}
+
+/* ---------- 07 why same ---------- */
+#s07{background:linear-gradient(180deg,var(--L2) 0,var(--L2) 160px,#5C665F 330px,var(--D) 470px,var(--D) 100%);padding:110px 0 150px}
+#s07 .ph{position:relative;width:1000px;height:1000px;margin-top:-20px}
+#s07 .ph img{width:1000px;height:1000px;object-fit:cover;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(0,0,0,.6) 140px,#000 260px,#000 760px,rgba(0,0,0,0) 1000px);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(0,0,0,.6) 140px,#000 260px,#000 760px,rgba(0,0,0,0) 1000px)}
+#s07 .ph .tt{position:absolute;left:0;right:0;top:250px;color:#fff}
+#s07 .ph .tt .l0{font-size:64px;font-weight:400;letter-spacing:-.04em;color:rgba(255,255,255,.75)}
+#s07 .ph .tt .big{font-size:104px;font-weight:800;letter-spacing:-.06em;line-height:1.1;margin-top:4px}
+#s07 .ask{font-size:34px;color:rgba(255,255,255,.62);letter-spacing:-.03em;margin-top:-90px;position:relative;z-index:2}
+#s07 .qm{font-family:'Noto Serif KR',serif;font-size:96px;line-height:.6;height:52px;color:var(--acD);margin-top:60px}
+#s07 .qt{font-size:48px;font-weight:700;letter-spacing:-.05em;line-height:1.36;margin-top:8px}
+#s07 .start{margin-top:130px}
+#s07 .start .l1{color:rgba(255,255,255,.78)}
+
+/* ---------- 08 refund ---------- */
+#s08{background:linear-gradient(180deg,var(--D) 0,var(--D) 1060px,#46544A 1200px,var(--L2) 1380px,var(--L2) 100%);padding:140px 0 150px}
+#s08 .badge{display:inline-block;margin-top:34px;padding:14px 34px;border-radius:999px;background:var(--acD);color:var(--D);font-size:28px;font-weight:800;letter-spacing:-.03em}
+#s08 .btl{position:relative;height:640px;margin-top:30px}
+#s08 .btl .halo{position:absolute;left:50%;top:60px;width:620px;height:520px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(166,209,150,.22),rgba(166,209,150,0) 65%)}
+#s08 .btl img{position:absolute;left:50%;top:40px;height:540px;transform:translateX(-50%);filter:drop-shadow(0 30px 40px rgba(0,0,0,.45))}
+#s08 .card{margin-top:40px;padding:16px 56px}
+#s08 .rw{display:flex;gap:30px;padding:34px 0;border-bottom:1px solid var(--line)}
+#s08 .rw:last-child{border-bottom:0}
+#s08 .rw .k{width:120px;flex:none;font-size:24px;font-weight:700;color:var(--ac);padding-top:4px}
+#s08 .rw .v{font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1.55;color:var(--ink)}
+#s08 .rw .v small{display:block;font-size:24px;font-weight:500;color:var(--mu)}
+
+/* ---------- 09 price ---------- */
+#s09{padding:120px 0 150px}
+#s09 .notice{width:860px;margin:0 auto 110px;border-top:2px solid var(--D);border-bottom:1px solid var(--line);padding:30px 0 32px}
+#s09 .notice .nt{font-size:20px;font-weight:700;letter-spacing:.24em;color:var(--ac)}
+#s09 .notice .ns{font-size:28px;line-height:1.6;color:var(--ink2);margin-top:12px;letter-spacing:-.03em}
+#s09 .notice .ns b{color:var(--ink)}
+#s09 .stock{display:inline-flex;align-items:center;gap:10px;margin-top:28px;font-size:24px;font-weight:700;color:var(--cr)}
+#s09 .stock i{width:10px;height:10px;border-radius:50%;background:var(--cr)}
+#s09 .opts{width:860px;margin:60px auto 0;display:flex;flex-direction:column;gap:22px}
+#s09 .op{display:flex;gap:30px;align-items:center;background:#fff;border-radius:28px;padding:30px 36px 30px 24px;box-shadow:0 14px 40px rgba(40,60,100,.06);text-align:left;position:relative}
+#s09 .op.best{outline:3px solid var(--D)}
+#s09 .op .im{width:230px;height:230px;flex:none;display:flex;align-items:center;justify-content:center}
+#s09 .op .im img{max-width:220px;max-height:220px}
+#s09 .op .nm{font-size:34px;font-weight:800;letter-spacing:-.04em}
+#s09 .op .tg{display:inline-block;font-size:18px;font-weight:700;padding:4px 12px;border-radius:6px;background:var(--D);color:#fff;margin-left:10px;vertical-align:6px}
+#s09 .op .pr{display:flex;align-items:baseline;gap:14px;margin-top:14px}
+#s09 .op .pr s{font-size:24px;color:#9AA39D}
+#s09 .op .pr .pc{font-size:30px;font-weight:800;color:var(--cr)}
+#s09 .op .now{font-size:52px;font-weight:800;letter-spacing:-.04em;color:var(--cr);line-height:1.1;margin-top:4px}
+#s09 .op .now small{font-size:28px;font-weight:700;margin-left:4px}
+#s09 .op .dy{font-size:23px;color:var(--mu);margin-top:8px}
+
+/* ---------- 10 problem ---------- */
+#s10{background:linear-gradient(180deg,var(--L2) 0,var(--L2) 1700px,#4C5A50 1880px,var(--D) 2040px,var(--D) 100%);padding:140px 0 150px}
+#s10 .stats{width:860px;margin:70px auto 0;display:flex;flex-direction:column;gap:22px}
+#s10 .st{background:#fff;border-radius:28px;padding:40px 48px;text-align:left;box-shadow:0 14px 40px rgba(40,60,100,.06)}
+#s10 .st .big{font-size:84px;font-weight:800;letter-spacing:-.05em;color:var(--ac);line-height:1}
+#s10 .st .big small{font-size:40px;margin-left:4px}
+#s10 .st .t{font-size:31px;font-weight:700;letter-spacing:-.04em;line-height:1.45;margin-top:16px}
+#s10 .st .s{font-size:24px;color:var(--mu);margin-top:10px;line-height:1.5}
+#s10 .two{margin-top:330px}
+#s10 .cardD{margin-top:60px;padding:16px 50px}
+#s10 .ct{font-size:28px;font-weight:700;color:var(--acD);padding:26px 0 6px;letter-spacing:-.03em}
+#s10 .cr{display:flex;align-items:center;gap:20px;padding:26px 0;border-bottom:1px solid var(--lineD)}
+#s10 .cr:last-child{border-bottom:0}
+#s10 .cr .g{flex:1;font-size:28px;letter-spacing:-.035em;color:rgba(255,255,255,.88)}
+#s10 .cr .r{font-size:26px;font-weight:700;color:#fff;text-align:right}
+#s10 .cr .r small{display:block;font-size:20px;font-weight:500;color:rgba(255,255,255,.5)}
+#s10 .cr .r.on{color:var(--acD)}
+#s10 .so{font-size:20px;color:rgba(255,255,255,.45);padding:18px 0 22px}
+#s10 .then{font-size:40px;font-weight:700;letter-spacing:-.045em;line-height:1.45;margin-top:90px}
+#s10 .then .ac{color:var(--acD)}
+
+/* ---------- 11 essential 3 ---------- */
+#s11{padding:150px 0 140px;background:radial-gradient(ellipse 80% 40% at 50% 0,#1E3324,var(--D) 70%)}
+#s11 .ing{width:860px;margin:90px auto 0;display:flex;gap:44px;align-items:center;text-align:left}
+#s11 .ing.rev{flex-direction:row-reverse}
+#s11 .ing .ci{width:330px;height:330px;border-radius:50%;overflow:hidden;flex:none;box-shadow:0 0 0 10px rgba(166,209,150,.08),0 30px 60px rgba(0,0,0,.35)}
+#s11 .ing .ci img{width:100%;height:100%;object-fit:cover}
+#s11 .ing .pt{font-size:19px;font-weight:700;letter-spacing:.24em;color:var(--acD)}
+#s11 .ing .nm{font-size:56px;font-weight:800;letter-spacing:-.05em;margin-top:12px}
+#s11 .ing .am{display:inline-block;font-size:21px;font-weight:600;color:var(--D);background:var(--acD);border-radius:6px;padding:4px 12px;margin-top:14px}
+#s11 .ing .ds{font-size:29px;line-height:1.6;color:rgba(255,255,255,.76);letter-spacing:-.035em;margin-top:18px}
+#s11 .ing .ds b{color:#fff}
+#s11 .core{width:860px;margin:100px auto 0;border:1px solid rgba(166,209,150,.35);border-radius:28px;padding:40px 30px}
+#s11 .core .a{font-size:21px;letter-spacing:.22em;color:var(--acD);font-weight:700}
+#s11 .core .b{font-size:40px;font-weight:800;letter-spacing:-.045em;margin-top:12px}
+#s11 .core .c{font-size:24px;color:rgba(255,255,255,.6);margin-top:10px}
+
+/* ---------- 12 other 11 ---------- */
+#s12{padding:40px 0 150px}
+#s12 .grp{width:860px;margin:80px auto 0;text-align:left}
+#s12 .grp .gt{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--lineD);padding-bottom:18px}
+#s12 .grp .gt b{font-size:32px;font-weight:800;letter-spacing:-.04em}
+#s12 .grp .gt span{font-size:20px;letter-spacing:.2em;color:rgba(255,255,255,.45)}
+#s12 .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+#s12 .gi{display:flex;align-items:center;gap:20px;background:rgba(255,255,255,.05);border:1px solid var(--lineD);border-radius:22px;padding:18px 22px}
+#s12 .gi .ic{width:96px;height:96px;flex:none;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;overflow:hidden}
+#s12 .gi .ic img{width:88px;height:88px;object-fit:contain}
+#s12 .gi .ic.t{background:rgba(166,209,150,.12);border:1px solid rgba(166,209,150,.35);font-family:'Noto Serif KR',serif;font-size:28px;font-weight:600;color:var(--acD)}
+#s12 .gi .n{font-size:29px;font-weight:700;letter-spacing:-.04em}
+#s12 .gi .d{font-size:20px;color:rgba(255,255,255,.5);margin-top:4px}
+
+/* ---------- 13 patent ---------- */
+#s13{padding:140px 0 150px;background:linear-gradient(180deg,var(--D),#0F1C13)}
+#s13 .cert{position:relative;width:560px;margin:70px auto 0;background:#fff;padding:22px;border-radius:10px;box-shadow:0 40px 80px rgba(0,0,0,.45);transform:rotate(-2deg)}
+#s13 .cert img{width:100%}
+#s13 .cardD{margin-top:80px;padding:12px 50px}
+#s13 .r{display:flex;justify-content:space-between;align-items:center;padding:28px 0;border-bottom:1px solid var(--lineD);font-size:28px}
+#s13 .r:last-child{border-bottom:0}
+#s13 .r span{color:rgba(255,255,255,.55);font-size:24px}
+#s13 .r b{font-weight:700;text-align:right;letter-spacing:-.03em}
+#s13 .r b.big{font-size:34px;color:var(--acD)}
+
+/* ---------- 14 research ---------- */
+#s14{background:linear-gradient(180deg,var(--D) 0,var(--D) 1820px,#4C5A50 2000px,var(--L2) 2180px,var(--L2) 100%);padding:140px 0 150px}
+#s14 .study{width:860px;margin:80px auto 0;text-align:left}
+#s14 .study .tag{display:inline-block;font-size:19px;font-weight:700;letter-spacing:.2em;padding:6px 14px;border-radius:6px}
+#s14 .on-d .tag{background:rgba(166,209,150,.15);color:var(--acD)}
+#s14 .on-l .tag{background:rgba(76,140,62,.12);color:var(--ac)}
+#s14 .study .tt{font-size:44px;font-weight:800;letter-spacing:-.05em;line-height:1.3;margin-top:18px}
+#s14 .study .ds{font-size:27px;line-height:1.6;margin-top:16px;letter-spacing:-.03em}
+#s14 .on-d .ds{color:rgba(255,255,255,.7)}
+#s14 .on-l .ds{color:var(--ink2)}
+#s14 .big{display:flex;align-items:baseline;gap:20px;margin-top:40px}
+#s14 .big b{font-size:120px;font-weight:800;letter-spacing:-.05em;line-height:1}
+#s14 .on-d .big b{color:var(--acD)}
+#s14 .on-l .big b{color:var(--ac)}
+#s14 .big span{font-size:24px;line-height:1.5}
+#s14 .on-d .big span{color:rgba(255,255,255,.6)}
+#s14 .on-l .big span{color:var(--mu)}
+#s14 .bars{margin-top:36px;display:flex;flex-direction:column;gap:18px}
+#s14 .bar{display:flex;align-items:center;gap:20px;font-size:24px}
+#s14 .bar .lb{width:130px;flex:none}
+#s14 .bar .tr{flex:1;height:22px;border-radius:11px;overflow:hidden}
+#s14 .on-d .bar .tr{background:rgba(255,255,255,.1)}
+#s14 .on-l .bar .tr{background:#fff}
+#s14 .bar .tr i{display:block;height:100%;border-radius:11px}
+#s14 .on-d .bar .tr i{background:var(--acD)}
+#s14 .on-l .bar .tr i{background:var(--ac)}
+#s14 .bar .vv{width:110px;text-align:right;font-weight:800;font-size:28px}
+#s14 .meta{margin-top:36px;border-top:1px solid;padding-top:8px}
+#s14 .on-d .meta{border-color:var(--lineD)}
+#s14 .on-l .meta{border-color:var(--line)}
+#s14 .meta .m{display:flex;gap:24px;padding:16px 0;font-size:22px;line-height:1.55}
+#s14 .meta .m b{width:110px;flex:none;font-weight:700}
+#s14 .on-d .meta .m{color:rgba(255,255,255,.62)}
+#s14 .on-d .meta .m b{color:var(--acD)}
+#s14 .on-l .meta .m{color:var(--ink2)}
+#s14 .on-l .meta .m b{color:var(--ac)}
+#s14 .study .fn{width:auto;margin-top:18px}
+#s14 .study2{margin-top:330px}
+
+/* ---------- 15 price philosophy ---------- */
+#s15{background:linear-gradient(180deg,var(--L2) 0,var(--L2) 1180px,#4C5A50 1340px,var(--D) 1500px,var(--D) 100%);padding:140px 0 150px}
+#s15 .cmp{width:860px;margin:80px auto 0;text-align:left;display:flex;flex-direction:column;gap:40px}
+#s15 .cmp .cl{font-size:24px;font-weight:700;color:var(--mu);margin-bottom:14px}
+#s15 .cmp .cl.r{color:var(--ac)}
+#s15 .stack{display:flex;height:120px;border-radius:18px;overflow:hidden}
+#s15 .stack div{display:flex;align-items:center;justify-content:center;text-align:center;font-size:22px;font-weight:700;line-height:1.35;padding:0 8px}
+#s15 .g1{background:#D5DBE3;color:#5B6670}
+#s15 .g2{background:repeating-linear-gradient(135deg,#E2E7EE 0 12px,#D5DBE3 12px 24px);color:#5B6670}
+#s15 .r1{background:var(--D);color:#fff}
+#s15 .r2{background:var(--ac);color:#fff}
+#s15 .r3{background:#C9D3C4;color:var(--ink)}
+#s15 .cmp .fn{width:auto;margin:6px 0 0}
+#s15 .end{margin-top:330px;font-size:40px;font-weight:600;letter-spacing:-.045em;line-height:1.55;color:rgba(255,255,255,.82)}
+#s15 .end b{color:var(--acD);font-weight:800}
+
+/* ---------- 16 documents ---------- */
+#s16{background:linear-gradient(180deg,var(--D) 0,var(--D) 2160px,#4C5A50 2320px,var(--L2) 2480px,var(--L2) 100%);padding:140px 0 150px}
+#s16 .docs{width:860px;margin:70px auto 0;text-align:left;border-top:1px solid var(--lineD)}
+#s16 .dr{display:flex;align-items:center;gap:24px;padding:24px 4px;border-bottom:1px solid var(--lineD)}
+#s16 .dr .n{width:46px;flex:none;font-size:22px;color:var(--acD);font-variant-numeric:tabular-nums}
+#s16 .dr .t{flex:1;font-size:29px;font-weight:700;letter-spacing:-.04em}
+#s16 .dr .d{font-size:21px;color:rgba(255,255,255,.5);text-align:right}
+#s16 .certs{width:860px;margin:60px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+#s16 .certs div{border:1px solid rgba(166,209,150,.35);border-radius:20px;padding:26px 20px}
+#s16 .certs b{display:block;font-size:34px;font-weight:800;color:var(--acD);letter-spacing:-.02em}
+#s16 .certs span{display:block;font-size:22px;color:rgba(255,255,255,.6);margin-top:6px}
+#s16 .fac{margin-top:300px;color:var(--ink)}
+#s16 .fac .l1{color:var(--ink)}
+#s16 .photos{width:860px;margin:50px auto 0;display:flex;flex-direction:column;gap:16px}
+#s16 .photos img{width:860px;height:420px;object-fit:cover;border-radius:24px}
+#s16 .fac .lead{width:860px;margin:30px auto 0}
+
+/* ---------- 17 compare ---------- */
+#s17{padding:140px 0 150px}
+#s17 .tb{width:860px;margin:70px auto 0;background:#fff;border-radius:28px;overflow:hidden;box-shadow:0 14px 40px rgba(40,60,100,.06);text-align:left}
+#s17 .tr{display:grid;grid-template-columns:170px 1fr 1fr}
+#s17 .tr>div{padding:28px 22px;border-bottom:1px solid var(--line);font-size:25px;line-height:1.45;letter-spacing:-.03em}
+#s17 .tr:last-child>div{border-bottom:0}
+#s17 .tr .k{font-weight:700;color:var(--mu);font-size:22px}
+#s17 .tr .a{color:#8A939C}
+#s17 .tr .b{background:rgba(76,140,62,.07);font-weight:700;color:var(--ink)}
+#s17 .tr .b small{display:block;font-size:20px;font-weight:600;color:var(--ac);margin-top:4px}
+#s17 .hd>div{font-size:22px!important;font-weight:800;color:var(--ink)!important;padding:30px 22px!important}
+#s17 .hd .b{background:var(--D)!important;color:#fff!important}
+
+/* ---------- 18 Q&A ---------- */
+#s18{padding:140px 0 150px}
+#s18 .qa{width:860px;margin:70px auto 0;display:flex;flex-direction:column;gap:22px;text-align:left}
+#s18 .q{align-self:flex-end;max-width:640px;background:var(--D);color:#fff;border-radius:28px 28px 6px 28px;padding:24px 32px;font-size:29px;font-weight:700;letter-spacing:-.04em}
+#s18 .q small{display:block;font-size:17px;letter-spacing:.2em;color:var(--acD);margin-bottom:6px}
+#s18 .a{max-width:760px;background:#fff;border-radius:28px 28px 28px 6px;padding:28px 34px;font-size:27px;line-height:1.6;color:var(--ink2);letter-spacing:-.035em;box-shadow:0 10px 30px rgba(40,60,100,.05)}
+#s18 .a small{display:block;font-size:17px;letter-spacing:.2em;color:var(--ac);font-weight:700;margin-bottom:6px}
+#s18 .a em{display:block;font-style:normal;font-size:22px;color:var(--mu);margin-top:10px}
+#s18 .gap{height:20px}
+
+/* ---------- 19 guide ---------- */
+#s19{padding:140px 0 150px}
+#s19 .tab{width:860px;margin:70px auto 0;background:#fff;border-radius:32px;padding:46px 50px 44px;text-align:left;box-shadow:0 14px 40px rgba(40,60,100,.06)}
+#s19 .tab+.tab{margin-top:24px}
+#s19 .tab .hd{display:flex;align-items:center;gap:18px}
+#s19 .tab .md{font-size:22px;font-weight:700;padding:8px 18px;border-radius:999px;background:var(--D);color:#fff}
+#s19 .tab .md.f{background:var(--ac)}
+#s19 .tab .when{margin-left:auto;font-size:21px;font-weight:700;color:var(--cr);background:rgba(140,35,65,.07);padding:8px 16px;border-radius:999px}
+#s19 .tab .ct{display:flex;align-items:baseline;gap:12px;margin-top:26px}
+#s19 .tab .ct b{font-size:96px;font-weight:800;letter-spacing:-.05em;color:var(--ac);line-height:1}
+#s19 .tab .ct span{font-size:32px;font-weight:700}
+#s19 .tab .ds{font-size:29px;line-height:1.6;color:var(--ink2);margin-top:18px;letter-spacing:-.035em}
+#s19 .tab .ds b{color:var(--ink)}
+#s19 .tl{display:flex;justify-content:space-between;margin-top:36px;position:relative;padding-top:8px}
+#s19 .tl::before{content:'';position:absolute;left:40px;right:40px;top:19px;height:2px;background:#DDE6D8}
+#s19 .tl div{position:relative;width:200px;text-align:center;font-size:21px;color:var(--mu);line-height:1.4}
+#s19 .tl div i{display:block;width:24px;height:24px;border-radius:50%;margin:0 auto 12px;background:#DDE6D8;border:4px solid #fff;box-sizing:content-box}
+#s19 .tl div.on i{background:var(--ac)}
+#s19 .tl div.on{color:var(--ink);font-weight:700}
+
+/* ---------- 20 notice ---------- */
+#s20{padding:130px 0 150px;background:linear-gradient(180deg,var(--L2),#F4F5FA 600px)}
+#s20 .gs{width:860px;margin:60px auto 0;text-align:left;border-top:2px solid var(--D)}
+#s20 .gr{display:grid;grid-template-columns:210px 1fr;border-bottom:1px solid var(--line)}
+#s20 .gr>div{padding:22px 16px;font-size:22px;line-height:1.6;letter-spacing:-.02em}
+#s20 .gr .k{font-weight:700;color:var(--ink);background:rgba(19,32,22,.03)}
+#s20 .gr .v{color:var(--ink2)}
+#s20 .gr .v ol{padding-left:26px}
+#s20 .gr .v b.al{display:inline-block;background:var(--D);color:#fff;font-size:19px;padding:2px 10px;border-radius:4px;margin-top:6px}
+#s20 .disc{width:860px;margin:36px auto 0;background:#fff;border-radius:20px;padding:28px 32px;text-align:left;font-size:22px;line-height:1.7;color:var(--mu)}
+
+/* ---------- part system (색 이어짐: 섹션 안 그라데이션) ---------- */
+#s04,#s05,#s07,#s08,#s10,#s14,#s15,#s16{background:none!important;padding:0!important}
+.pd .dk{background:var(--D);color:#fff}
+.pd .lt{background:var(--L2);color:var(--ink)}
+.pd .pt{padding-top:140px}
+.pd .pb{padding-bottom:150px}
+.pd .fade{height:300px;position:relative;margin-top:-1px;margin-bottom:-1px}
+#s07 .ph{margin-bottom:-1px!important}
+.pd .fade.d2l{background:linear-gradient(180deg,#132016 0%,#18261B 14%,#2E3D33 34%,#66726C 56%,#AEB6BC 76%,#DCE1EA 91%,#EAEEF7 100%)}
+.pd .fade.l2d{background:linear-gradient(0deg,#132016 0%,#18261B 14%,#2E3D33 34%,#66726C 56%,#AEB6BC 76%,#DCE1EA 91%,#EAEEF7 100%)}
+#s04 .boxwrap{position:relative;margin:-1px 0;padding-top:90px;background:linear-gradient(180deg,#EAEEF7 0,#EAEEF7 340px,#DCE1EA 390px,#AEB6BC 460px,#66726C 540px,#2E3D33 630px,#18261B 690px,#132016 750px,#132016 100%)}
+#s04 .box{margin-top:0;padding-top:0}
+#s04 .list{margin-top:0}
+#s05 .end{margin-top:0;padding:40px 0 150px}
+#s07 .ph{margin-top:0;background:linear-gradient(180deg,#EAEEF7 0,#AEB6BC 120px,#2E3D33 220px,#132016 300px)}
+#s07 .ask{margin-top:-90px}
+#s10 .two{margin-top:0}
+#s14 .study2{margin-top:0}
+#s15 .end{margin-top:0}
+#s16 .fac{margin-top:0}
+
+/* hero (확정 B 문구) */
+
+
+
+
+#hero{width:1000px;position:relative;overflow:hidden;text-align:center;color:var(--tx);background:linear-gradient(180deg,var(--tb) 0,var(--tb) 760px,var(--bb) 1380px,var(--bb) 100%)}
+#hero .top{padding-top:112px;position:relative;z-index:2}
+#hero .eb{font-size:31px;font-weight:600;letter-spacing:.42em;color:var(--mu);margin-right:-.42em}
+#hero .l1{font-size:48px;font-weight:500;letter-spacing:-.04em;margin-top:44px}
+#hero .h{font-size:96px;font-weight:800;letter-spacing:-.055em;line-height:1.12;margin-top:6px}
+#hero .ac{color:var(--ac)}
+#hero .dv{display:flex;align-items:center;justify-content:center;gap:26px;margin-top:40px;font-size:20px;letter-spacing:.24em;color:var(--mu);font-weight:500}
+#hero .dv i{width:56px;height:1px;background:var(--ln)}
+#hero .ph{position:relative;margin-top:-10px;height:1000px}
+#hero .ph img{width:1000px;display:block;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 230px,#000 760px,rgba(0,0,0,0) 1000px);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 230px,#000 760px,rgba(0,0,0,0) 1000px)}
+#hero .seal{position:absolute;right:92px;top:190px;width:210px;height:210px;z-index:3}
+#hero .seal .in{position:absolute;inset:30px;border-radius:50%;background:var(--sf);border:1px solid var(--si);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(0,0,0,.28)}
+#hero .seal .st{font-size:13px;letter-spacing:3px;color:var(--si)}
+#hero .seal .rb{margin-top:8px;background:var(--rb);color:var(--ri);font-size:16px;font-weight:800;letter-spacing:-.02em;padding:6px 12px;border-radius:3px;white-space:nowrap}
+#hero .seal .yr{margin-top:8px;font-size:11px;letter-spacing:.2em;color:var(--si);opacity:.8}
+#hero .bt{position:relative;z-index:2;margin-top:-30px;padding-bottom:120px}
+#hero .s1{font-size:50px;font-weight:500;letter-spacing:-.045em}
+#hero .s2{font-size:56px;font-weight:800;letter-spacing:-.05em;color:var(--ac);margin-top:4px}
+#hero .vl{width:1px;height:72px;background:var(--ln);margin:44px auto}
+#hero .s3{font-size:52px;font-weight:800;letter-spacing:-.05em;line-height:1.3}
+#hero .s4{font-size:30px;line-height:1.7;color:var(--mu);letter-spacing:-.035em}
+#hero .ph img{-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 200px,#000 820px,rgba(0,0,0,0) 1000px);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 200px,#000 820px,rgba(0,0,0,0) 1000px)}
+#hero .bt{margin-top:-60px}
+/* review */
+
+
+
+#review{width:1000px;background:#EAEEF7;padding:130px 0 120px;position:relative;overflow:hidden}
+#review .w{padding:0 80px}
+#review .lab{display:flex;align-items:center;gap:16px;font-size:20px;letter-spacing:4px;font-weight:600;text-transform:uppercase;color:#4C8C3E}
+#review .lab i{display:block;width:44px;height:1px;background:#4C8C3E;opacity:.7}
+#review .rt{display:flex;align-items:flex-end;gap:40px;margin-top:40px}
+#review .rt .n{font-size:190px;font-weight:800;letter-spacing:-.06em;line-height:.82;color:#2C5226}
+#review .rt .n small{font-size:44px;color:#6B7A70;font-weight:600;letter-spacing:-.02em;margin-left:8px}
+#review .rt .r{border-left:1px solid rgba(19,32,22,.14);padding-left:36px;padding-bottom:6px}
+#review .stars{display:flex;gap:6px}
+#review .stars svg{width:34px;height:34px}
+#review .rt .r p{font-size:27px;color:#3E4A42;margin-top:14px;line-height:1.5}
+#review .rt .r p b{color:#132016;font-weight:800}
+#review .sat{display:flex;align-items:center;gap:30px;margin-top:34px;padding:26px 0;border-top:1px solid rgba(19,32,22,.14);border-bottom:1px solid rgba(19,32,22,.14)}
+#review .sat b{font-size:64px;font-weight:800;letter-spacing:-.05em;color:#2C5226;line-height:1}
+#review .sat b small{font-size:30px;margin-left:4px}
+#review .sat span{font-size:27px;color:#132016;font-weight:700;letter-spacing:-.03em;line-height:1.4}
+#review .sat span em{display:block;font-style:normal;font-size:22px;color:#6B7A70;font-weight:500}
+#review .h2{font-size:66px;font-weight:800;letter-spacing:-.05em;line-height:1.2;margin-top:110px}
+#review .ac{color:#132016}
+#review .rvs{margin-top:64px;border-top:1px solid #132016}
+#review .rv2{display:flex;gap:44px;padding:56px 0;border-bottom:1px solid rgba(19,32,22,.14);align-items:center}
+#review .rv2.rev{flex-direction:row-reverse}
+#review .rv2 img{width:320px;height:320px;object-fit:cover;flex:none;border-radius:6px}
+#review .rv2 .no{font-size:18px;letter-spacing:.2em;color:#4F8F42;font-weight:700;display:flex;align-items:center;gap:14px}
+#review .rv2 .no em{font-style:normal;letter-spacing:-.01em;font-size:22px;font-weight:700;color:#fff;background:#4C8C3E;padding:5px 14px 6px;border-radius:999px}
+#review .rv2 .q{font-family:'Noto Serif KR',serif;font-size:38px;font-weight:700;letter-spacing:-.045em;line-height:1.38;margin-top:18px;color:#132016}
+#review .rv2 .b{font-size:28px;line-height:1.66;color:#3E4A42;margin-top:18px;letter-spacing:-.03em}
+#review .rv2 .m{font-size:21px;color:#6B7A70;margin-top:20px}
+#review .rv2 .m span{color:#4C8C3E;letter-spacing:2px;margin-right:10px}
+#review .fn{font-size:23px;line-height:1.6;color:#6B7A70;letter-spacing:-.015em;margin-top:30px}
+/* ===== v5 추가/변경 ===== */
+body.m-gold{--m1:#F7E9BE;--m2:#D9BC7C;--m3:#9C7A3C;--m4:#EAD7A4;--metal:#D9BE84}
+body.m-silver{--m1:#FAFBFC;--m2:#C9CFD6;--m3:#808892;--m4:#E8EBEF;--metal:#C9D0D8}
+.pd .lab.metal{color:var(--metal)!important}
+
+/* 01 공식판매처 뱃지 (옵티아형) */
+#s01{padding:84px 0 88px;background:linear-gradient(180deg,#0F1C13 0%,#132016 100%)!important}
+#s01 .off{width:880px;margin:0 auto;display:flex;align-items:center;gap:56px;text-align:left}
+#s01 .seal{width:300px;height:300px;flex:none;position:relative;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+#s01 .seal svg{width:300px;height:300px;display:block}
+#s01 .seal .sheen{position:absolute;inset:0;border-radius:50%;background:linear-gradient(120deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.22) 45%,rgba(255,255,255,0) 60%);mix-blend-mode:screen;pointer-events:none}
+#s01 .ot{font-size:50px;font-weight:800;letter-spacing:-.05em;line-height:1.25;color:#fff}
+#s01 .odv{display:block;width:100%;height:1px;background:rgba(255,255,255,.22);margin:26px 0 24px}
+#s01 .op{font-size:30px;line-height:1.6;letter-spacing:-.035em;color:rgba(255,255,255,.74)}
+#s01 .op b{color:var(--metal);font-weight:700}
+
+/* 02 히어로: 새 사진, 상자 위쪽이 흐려지지 않게 마스크 조정 */
+#hero .ph img{-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 70px,#000 840px,rgba(0,0,0,0) 1000px)!important;mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 70px,#000 840px,rgba(0,0,0,0) 1000px)!important}
+
+/* 03 후기: 글을 카드 안에 */
+#review .rvs{border-top:0!important}
+#review .rv2{border-bottom:0!important;padding:22px 0!important;align-items:stretch!important}
+#review .rv2 img{align-self:center}
+#review .rv2>div{flex:1;background:#fff;border-radius:26px;padding:38px 40px 36px;box-shadow:0 14px 40px rgba(40,60,100,.07)}
+
+/* 04 USP (WHY RENEWSIA) */
+#s04 .dk{padding-top:40px;padding-bottom:150px}
+#s04 .l1{font-size:54px;color:rgba(255,255,255,.78)}
+#s04 .hh{font-size:80px}
+#s04 .stage{position:relative;width:1000px;height:1000px;margin-top:10px}
+#s04 .stage img{width:1000px;height:1000px;object-fit:cover;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 160px,#000 820px,rgba(0,0,0,0) 1000px);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 160px,#000 820px,rgba(0,0,0,0) 1000px)}
+#s04 .list{width:880px;margin:0 auto;border-top:1px solid var(--lineD)}
+#s04 .row{padding:46px 6px!important;gap:34px!important}
+#s04 .row .n{font-size:40px!important;width:72px!important;font-weight:300;color:var(--metal)!important}
+#s04 .row .t{font-size:42px!important;line-height:1.3!important}
+#s04 .row .tg{font-size:18px!important}
+
+/* 06 의약한: 역할 뱃지 제거 */
+#s06 .pill{display:none!important}
+#s06 .role .l1{margin-top:0!important}
+
+/* 07 질문 블록 (첨부4형) */
+#s07 .start2{margin-top:120px}
+#s07 .start2 .qmk{font-family:'Noto Serif KR',serif;font-size:110px;line-height:.5;height:60px;color:var(--acD)}
+#s07 .start2 .sq{font-size:52px;font-weight:700;letter-spacing:-.05em;line-height:1.5;margin-top:30px;color:#fff}
+#s07 .start2 .hl{color:var(--acD);background:linear-gradient(transparent 62%,rgba(166,209,150,.22) 62%);padding:0 6px}
+#s07 .start2 .lead{margin-top:40px}
+
+/* 08 환불: 전부 어두운 배경, 간격 축소 */
+#s08{background:var(--D)!important}
+#s08 .stagebtl{position:relative;width:1000px;height:1000px;margin-top:-30px}
+#s08 .stagebtl img{width:1000px;height:1000px;object-fit:cover;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 150px,#000 800px,rgba(0,0,0,0) 960px);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 150px,#000 800px,rgba(0,0,0,0) 960px)}
+#s08 .terms{position:relative;margin-top:-150px;padding-bottom:150px}
+#s08 .cardD{padding:16px 56px}
+#s08 .cardD .rw{border-bottom:1px solid var(--lineD)}
+#s08 .cardD .rw:last-child{border-bottom:0}
+#s08 .cardD .rw .k{color:var(--acD)}
+#s08 .cardD .rw .v{color:#fff}
+#s08 .cardD .rw .v small{color:rgba(255,255,255,.55)}
+
+/* 09 가격 (이전 디자인, 배경만 초록) */
+#s09{padding:120px 0 120px!important;background:linear-gradient(180deg,#132016 0%,#1A2C1F 45%,#132016 100%)!important;color:#fff}
+#s09 .glow{position:absolute;left:50%;top:40px;width:900px;height:420px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(166,209,150,.12),rgba(166,209,150,0) 70%);pointer-events:none}
+#s09 .pt1{font-size:56px;font-weight:500;letter-spacing:-.045em;position:relative}
+#s09 .pt2{font-size:70px;font-weight:800;letter-spacing:-.055em;margin-top:4px;position:relative}
+#s09 .pt3{font-size:20px;font-weight:700;letter-spacing:.32em;margin-right:-.32em;color:var(--metal);margin-top:22px;position:relative}
+#s09 .cards{width:760px;margin:64px auto 0;display:flex;flex-direction:column;gap:32px;position:relative}
+#s09 .pc{position:relative;background:#fff;border-radius:30px;overflow:hidden;text-align:left;color:#132016;box-shadow:0 24px 50px rgba(0,0,0,.28)}
+#s09 .pc .in{padding:40px 44px 32px}
+#s09 .pc .br{font-size:17px;font-weight:600;letter-spacing:.3em;color:#4C8C3E}
+#s09 .pc .chips{display:flex;gap:10px;margin-top:16px}
+#s09 .pc .chips span{font-size:18px;font-weight:700;color:#8C2341;border:1.5px solid rgba(140,35,65,.45);border-radius:999px;padding:5px 16px}
+#s09 .pc .body{display:flex;gap:32px;align-items:center;margin-top:22px}
+#s09 .pc .pim{width:190px;height:190px;flex:none;border-radius:18px;background:#F1F2EE;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#s09 .pc .pim img{max-width:176px;max-height:176px}
+#s09 .pc .info{flex:1}
+#s09 .pc .nm{font-size:38px;font-weight:800;letter-spacing:-.045em}
+#s09 .pc .nm b{color:#8C2341}
+#s09 .pc .rw1{display:flex;justify-content:space-between;align-items:baseline;margin-top:20px;padding-bottom:16px;border-bottom:1px solid rgba(19,32,22,.12);font-size:23px;color:#6B7A70}
+#s09 .pc .rw2{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;font-size:25px;font-weight:800}
+#s09 .pc .rw2 b{font-size:40px;color:#8C2341;letter-spacing:-.03em}
+#s09 .pc .band{display:flex;justify-content:space-between;align-items:center;padding:24px 44px;background:linear-gradient(90deg,#8C2341,#A93A5A);color:#fff;font-size:24px;font-weight:700}
+#s09 .pc .band b{font-size:36px;font-weight:800;letter-spacing:-.02em}
+#s09 .pc .rib{position:absolute;right:40px;top:0;width:96px;height:112px;background:linear-gradient(180deg,#A93A5A,#8C2341);color:#fff;text-align:center;padding-top:14px;clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);box-shadow:0 6px 14px rgba(140,35,65,.35)}
+#s09 .pc .rib b{display:block;font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1}
+#s09 .pc .rib b small{font-size:20px}
+#s09 .pc .rib span{display:block;font-size:15px;font-weight:700;letter-spacing:.2em;margin-top:6px}
+#s09 .pnote{font-size:22px;color:rgba(255,255,255,.55);margin-top:34px;position:relative}
+
+/* 10 문제점 (토모젠형) */
+#s10{background:var(--D)!important;padding:140px 0 150px!important;color:#fff}
+#s10 .kv{position:relative;width:1000px;margin-top:50px}
+#s10 .kv img{width:1000px;display:block;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 90px,#000 80%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 90px,#000 80%,rgba(0,0,0,0) 100%)}
+#s10 .study{width:880px;margin:80px auto 0;background:rgba(255,255,255,.05);border:1px solid var(--lineD);border-radius:30px;padding:56px 40px 44px}
+#s10 .study .sl{font-size:19px;letter-spacing:.24em;color:rgba(255,255,255,.45);font-weight:600}
+#s10 .study .stt{font-size:40px;font-weight:500;letter-spacing:-.045em;margin-top:16px}
+#s10 .study .stt b{font-weight:800}
+#s10 .paper{position:relative;width:640px;margin:44px auto 0}
+#s10 .paper img{width:640px;border-radius:6px;box-shadow:0 30px 60px rgba(0,0,0,.45);transform:rotate(-1.5deg);opacity:.92}
+#s10 .quote{position:relative;width:780px;margin:-210px auto 0;background:rgba(246,248,244,.96);color:#132016;border-radius:14px;padding:30px 34px;box-shadow:0 20px 50px rgba(0,0,0,.35);text-align:left}
+#s10 .quote .en{font-family:Georgia,'Noto Serif KR',serif;font-style:italic;font-size:20px;line-height:1.6;color:#3E4A42}
+#s10 .quote .en mark{background:linear-gradient(transparent 55%,rgba(76,140,62,.28) 55%);color:#132016}
+#s10 .quote .ko{font-size:25px;line-height:1.65;letter-spacing:-.03em;margin-top:16px;border-top:1px solid rgba(19,32,22,.12);padding-top:16px}
+#s10 .quote .ko b{color:#2C6B32}
+#s10 .quote .ko em{font-style:normal;font-weight:800;color:#8C2341}
+#s10 .study .cite{font-size:19px;line-height:1.6;color:rgba(255,255,255,.45);margin-top:30px;text-align:center}
+#s10 .say{margin-top:120px}
+#s10 .say .qm{font-family:'Noto Serif KR',serif;font-size:80px;line-height:.4;height:40px;color:rgba(255,255,255,.35)}
+#s10 .say .a{font-size:44px;font-weight:500;letter-spacing:-.045em;color:rgba(255,255,255,.62);margin-top:22px}
+#s10 .say .b{font-size:52px;font-weight:800;letter-spacing:-.05em;margin-top:6px}
+#s10 .ev{width:880px;margin:70px auto 0;display:flex;flex-direction:column;gap:20px;text-align:left}
+#s10 .evc{background:rgba(255,255,255,.05);border:1px solid var(--lineD);border-radius:26px;padding:34px 38px}
+#s10 .evc .tg{display:inline-block;font-size:18px;font-weight:800;padding:4px 12px;border-radius:6px;background:var(--acD);color:#132016}
+#s10 .evc .tg.s{background:rgba(255,255,255,.14);color:#fff}
+#s10 .evc .j{font-family:Georgia,'Noto Serif KR',serif;font-style:italic;font-size:21px;color:var(--acD);margin-left:12px}
+#s10 .evc .t{font-size:32px;font-weight:700;letter-spacing:-.04em;line-height:1.4;margin-top:16px}
+#s10 .evc .k{font-size:28px;letter-spacing:-.035em;line-height:1.5;margin-top:8px;color:rgba(255,255,255,.8)}
+#s10 .evc .k em{font-style:normal;font-weight:800;color:var(--acD)}
+#s10 .evc .pm{font-size:19px;color:rgba(255,255,255,.4);margin-top:10px}
+#s10 .so{margin-top:130px}
+#s10 .so .a{font-size:50px;font-weight:500;letter-spacing:-.045em}
+#s10 .so .b{font-size:64px;font-weight:800;letter-spacing:-.055em;line-height:1.25;margin-top:6px}
+#s10 .so .b .ac{color:var(--acD)}
+#s10 .so .c{font-size:28px;color:rgba(255,255,255,.55);margin-top:22px}
+#s10 .dia{width:880px;margin:56px auto 0;background:rgba(255,255,255,.04);border:1px solid rgba(166,209,150,.3);border-radius:30px;padding:30px 0 26px}
+#s10 .dia svg{display:block;width:880px;height:760px}
+#s10 .end{font-size:36px;font-weight:700;letter-spacing:-.045em;line-height:1.5;margin-top:60px}
+#s10 .end .ac{color:var(--acD)}
+
+/* 12 그 외 11 : 비타민C 사진 아이콘 */
+#s12 .gi .ic.ph{background:#fff}
+#s12 .gi .ic.ph img{width:96px;height:96px;object-fit:cover}
+
+/* 14 연구결과: 이전 디자인 GIF */
+#s14 .gifs{background:var(--L2)}
+#s14 .gifs img{width:1000px;display:block}
+#s14 .gifs .g2{margin-top:-1px}
+
+/* 16 제조시설 내부 사진 2x2 */
+#s16 .photos{display:grid!important;grid-template-columns:1fr 1fr;gap:16px!important}
+#s16 .photos figure{margin:0;position:relative}
+#s16 .photos img{width:422px!important;height:300px!important;object-fit:cover;border-radius:20px!important}
+#s16 .photos figcaption{position:absolute;left:16px;bottom:14px;font-size:18px;font-weight:700;color:#fff;background:rgba(19,32,22,.6);padding:5px 12px;border-radius:999px}
+
+#s04 .row .tg{display:none!important}
+
+#s08 .terms{margin-top:-60px!important}
+#s08 .stagebtl img{-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 150px,#000 870px,rgba(0,0,0,0) 990px)!important;mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 150px,#000 870px,rgba(0,0,0,0) 990px)!important}
+#s04 .lab.metal{font-size:30px!important;letter-spacing:.34em!important;margin-right:-.34em!important}
+#s10 .lab.metal{font-size:24px!important}
+
+#s16 .fade{margin-top:-1px!important}
+#s16 .dk{padding-bottom:90px!important}
+
+</style><style id="fx-figma">.fx-nopse::before,.fx-nopse::after{content:none!important}
+#s01 .seal{filter:none!important;box-shadow:0 18px 30px rgba(0,0,0,.45);border-radius:50%}
+#s01 .seal .sheen{mix-blend-mode:normal!important}
+#s09 .pc .rib{clip-path:none!important;background:none!important;box-shadow:none!important}
+#s09 .pc .rib>b,#s09 .pc .rib>span{position:relative;z-index:1}</style></head><body class="m-silver">
+<!-- ===== 01 공식판매처 (옵티아형 뱃지) ===== -->
+<section class="pd D" id="s01">
+  <div class="off">
+    <div class="seal"><div class="fx-seal" style="position: relative; width: 300px; height: 300px;"><img class="fx-done fx-sealimg" src="seal_silver.png" alt="리뉴시아 공식 판매처 인장" style="display: block; width: 300px; height: 300px;"><div class="fx-txt" style="position: absolute; left: 89.5px; top: 169px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.3px; color: rgba(255, 255, 255, 0.9); line-height: 1.3; margin: 0px; padding: 0px;">리뉴시아 공식 판매처</div></div><div class="sheen"></div></div>
+    <div class="otx">
+      <div class="ot">리뉴시아 공식 홈페이지</div>
+      <i class="odv"></i>
+      <div class="op">본 페이지는 리뉴시아 본사에서 직접 운영하는 공식 판매 채널이며, 모든 제품은 정품 검수 후 출고됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 히어로 ===== -->
+<section id="hero" style="--tb:#f3f7fb;--bb:#eaeff7;--tx:#132016;--mu:#6B7A70;--ac:#4C8C3E;--ln:rgba(19,32,22,.22)">
+  <div class="top"><div class="eb">경험하지 못했던 새로운 결과</div><div class="l1">방광, 요로관리 의학 설계 포뮬러</div><div class="h"><span class="ac">리뉴시아</span> 정식 출시</div><div class="dv"><i></i>DOCTOR · PHARMACIST · KMD CO-DESIGNED<i></i></div></div>
+  <div class="ph"><img src="hero_01.png" class="fx-done" style="width: 1000px !important; height: 1000px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div>
+  <div class="bt"><div class="s1">한 단계 더 나아간</div><div class="s2">방광의 편안함</div><div class="vl"></div><div class="s3">의·약·한 3인 공동 설계<br>방광 솔루션</div><div class="vl"></div><div class="s4">밤마다 깨는 야뇨와 찝찝한 잔뇨감,<br>이제 하나의 배합으로 관리하세요.</div></div>
+</section>
+
+<!-- ===== 03 후기 ===== -->
+<section class="review" id="review">
+  <div class="w">
+    <div class="lab"><i></i>Real Review</div>
+    <div class="rt"><div class="n">4.8<small>/ 5.0</small></div><div class="r"><div class="stars"><svg viewBox="0 0 24 24"><defs><linearGradient id="sv0"><stop offset="100%" stop-color="#2C5226"></stop><stop offset="100%" stop-color="rgba(44,82,38,.18)"></stop></linearGradient></defs><path fill="url(#sv0)" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24"><defs><linearGradient id="sv1"><stop offset="100%" stop-color="#2C5226"></stop><stop offset="100%" stop-color="rgba(44,82,38,.18)"></stop></linearGradient></defs><path fill="url(#sv1)" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24"><defs><linearGradient id="sv2"><stop offset="100%" stop-color="#2C5226"></stop><stop offset="100%" stop-color="rgba(44,82,38,.18)"></stop></linearGradient></defs><path fill="url(#sv2)" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24"><defs><linearGradient id="sv3"><stop offset="100%" stop-color="#2C5226"></stop><stop offset="100%" stop-color="rgba(44,82,38,.18)"></stop></linearGradient></defs><path fill="url(#sv3)" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg><svg viewBox="0 0 24 24"><defs><linearGradient id="sv4"><stop offset="80%" stop-color="#2C5226"></stop><stop offset="80%" stop-color="rgba(44,82,38,.18)"></stop></linearGradient></defs><path fill="url(#sv4)" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"></path></svg></div><p>실구매 고객 평점<br>누적 리뷰 <b>7,287건</b></p></div></div><div class="sat"><b>98<small>%</small></b><span>만족 리뷰 비율<em>공식몰 실구매 리뷰 기준 (2026년 10월)</em></span></div>
+    <div class="h2">직접 받아보고 남긴<br><span class="ac">실구매 포토 리뷰</span></div>
+    <div class="rvs">
+<div class="rv2"><img src="review_01.png"><div><div class="no">REVIEW 01<em>#방광염</em></div><div class="q">“방광염이 자주 재발하는<br>저에게 효과가 좋아요”</div><div class="b">특허받은 크랜베리N호박씨 이중 케어 성분이 함유되어 방광염이 자주 재발하는 저에게 효과가 좋아요 알 크기도 적당해 부담 없이 섭취 가능하고 포장도 깔끔하고 꾸준히 복용하면서 건강 관리에 도움을 줄 수 있을 것 같아 재구매 의사있어요!</div><div class="m"><span>★★★★★</span>김**** · 공식몰 실구매 고객</div></div></div>
+<div class="rv2 rev"><img src="review_02.jpg" class="fx-done" style="width: 320px !important; height: 320px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><div><div class="no">REVIEW 02<em>#잔뇨감</em></div><div class="q">“한결 편안해지고<br>시원한 느낌이 드네요!”</div><div class="b">요즘 들어 화장실을 다녀와도 잔뇨감이 들고 개운하지가 않아서 고민 끝에 사봤어요. … 며칠 꾸준히 섭취해 보니 확실히 화장실 갈 때 한결 편안해지고 시원한 느낌이 드네요!</div><div class="m"><span>★★★★★</span>기**** · 공식몰 실구매 고객</div></div></div>
+<div class="rv2"><img src="review_03.png"><div><div class="no">REVIEW 03<em>#요실금</em></div><div class="q">“요실금에 좋은 영양제로<br>효도하기!”</div><div class="b">엄마가 요즘 요실금이 심해졌다구 속상해하셔서 영양제 찾아보다가 괜찮아보여서 구매했어영~~ … 요즘 꾸준히 챙겨 드시더니 방광 건강이 확실히 개선되는 느낌이라~~ 평소 화장실 자주 가던 게 줄어들고, 속도 편안하시다니데여!! ㅎㅎㅎ</div><div class="m"><span>★★★★★</span>유**** · 공식몰 실구매 고객</div></div></div>
+</div>
+    <div class="fn">※ 리뉴시아 공식몰 실구매 리뷰 원문 일부를 발췌했습니다. 평점·리뷰 수는 2026년 10월 기준이며, 개인에 따라 차이가 있을 수 있습니다.</div>
+  </div>
+</section>
+
+<!-- ===== 04 USP : WHY RENEWSIA (LIGHT → DARK) ===== -->
+<section class="pd" id="s04">
+  <div class="fade l2d"></div>
+  <div class="dk on-d">
+    <div class="lab metal">Why Renewsia</div>
+    <div class="l1">수많은 방광 영양제 사이에서,</div>
+    <div class="hh">딱 5가지만 기억하세요</div>
+    <div class="stage"><img src="s04_01.png" alt="리뉴시아 상자" class="fx-done" style="width: 1000px !important; height: 1000px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div>
+    <div class="list">
+      <div class="row"><div class="n">01</div><div><div class="t">의사·약사·한의사 3인 공동 설계</div></div><div class="tg">EXPERTISE</div></div>
+      <div class="row"><div class="n">02</div><div><div class="t">배뇨기능 개선 조성물 특허 인증</div></div><div class="tg">PATENT</div></div>
+      <div class="row"><div class="n">03</div><div><div class="t">요로감염 재발연구 개선</div></div><div class="tg">RESEARCH</div></div>
+      <div class="row"><div class="n">04</div><div><div class="t">과민성방광지수(OABSS) 감소 연구</div></div><div class="tg">RESEARCH</div></div>
+      <div class="row"><div class="n">05</div><div><div class="t">필수 원료 3종 + 한·양방 복합원료 11종 배합</div></div><div class="tg">FORMULA</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 체크리스트 ===== -->
+<section class="pd" id="s05">
+  <div class="dk on-d pt">
+    <div class="lab"><i></i>Self Check<i></i></div>
+    <div class="hh"><span class="ac">리뉴시아</span> <span class="en">CHECK LIST</span></div>
+    <div class="lead">요즘, 이런 불편이 있지 않으세요?</div>
+    <div class="items">
+      <div class="it"><span class="ck fx-nopse"><span class="fx-pseudo" style="block-size:19px;border-block-end-color:rgb(166, 209, 150);border-block-end-style:solid;border-block-end-width:3px;border-block-start-color:rgb(166, 209, 150);border-block-start-style:solid;border-block-start-width:0px;border-bottom-color:rgb(166, 209, 150);border-bottom-style:solid;border-bottom-width:3px;border-image-width:1;border-inline-end-color:rgb(166, 209, 150);border-inline-end-style:solid;border-inline-end-width:3px;border-inline-start-color:rgb(166, 209, 150);border-inline-start-style:solid;border-inline-start-width:0px;border-left-color:rgb(166, 209, 150);border-left-style:solid;border-left-width:0px;border-right-color:rgb(166, 209, 150);border-right-style:solid;border-right-width:3px;border-top-color:rgb(166, 209, 150);border-top-style:solid;border-top-width:0px;bottom:10px;box-sizing:content-box;display:block;height:19px;inline-size:11px;inset-block-end:10px;inset-block-start:8px;inset-inline-end:13px;inset-inline-start:13px;left:13px;perspective-origin:7px 11px;position:absolute;right:13px;top:8px;transform:matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);transform-origin:7px 11px;width:11px;"></span></span><div>밤마다 <b>2~3번씩 깨서</b> 화장실에 다녀와요</div></div>
+      <div class="it"><span class="ck fx-nopse"><span class="fx-pseudo" style="block-size:19px;border-block-end-color:rgb(166, 209, 150);border-block-end-style:solid;border-block-end-width:3px;border-block-start-color:rgb(166, 209, 150);border-block-start-style:solid;border-block-start-width:0px;border-bottom-color:rgb(166, 209, 150);border-bottom-style:solid;border-bottom-width:3px;border-image-width:1;border-inline-end-color:rgb(166, 209, 150);border-inline-end-style:solid;border-inline-end-width:3px;border-inline-start-color:rgb(166, 209, 150);border-inline-start-style:solid;border-inline-start-width:0px;border-left-color:rgb(166, 209, 150);border-left-style:solid;border-left-width:0px;border-right-color:rgb(166, 209, 150);border-right-style:solid;border-right-width:3px;border-top-color:rgb(166, 209, 150);border-top-style:solid;border-top-width:0px;bottom:10px;box-sizing:content-box;display:block;height:19px;inline-size:11px;inset-block-end:10px;inset-block-start:8px;inset-inline-end:13px;inset-inline-start:13px;left:13px;perspective-origin:7px 11px;position:absolute;right:13px;top:8px;transform:matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);transform-origin:7px 11px;width:11px;"></span></span><div><b>방광염이 또 재발</b>할까 늘 불안해요</div></div>
+      <div class="it"><span class="ck fx-nopse"><span class="fx-pseudo" style="block-size:19px;border-block-end-color:rgb(166, 209, 150);border-block-end-style:solid;border-block-end-width:3px;border-block-start-color:rgb(166, 209, 150);border-block-start-style:solid;border-block-start-width:0px;border-bottom-color:rgb(166, 209, 150);border-bottom-style:solid;border-bottom-width:3px;border-image-width:1;border-inline-end-color:rgb(166, 209, 150);border-inline-end-style:solid;border-inline-end-width:3px;border-inline-start-color:rgb(166, 209, 150);border-inline-start-style:solid;border-inline-start-width:0px;border-left-color:rgb(166, 209, 150);border-left-style:solid;border-left-width:0px;border-right-color:rgb(166, 209, 150);border-right-style:solid;border-right-width:3px;border-top-color:rgb(166, 209, 150);border-top-style:solid;border-top-width:0px;bottom:10px;box-sizing:content-box;display:block;height:19px;inline-size:11px;inset-block-end:10px;inset-block-start:8px;inset-inline-end:13px;inset-inline-start:13px;left:13px;perspective-origin:7px 11px;position:absolute;right:13px;top:8px;transform:matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);transform-origin:7px 11px;width:11px;"></span></span><div>볼일을 봐도 <b>잔뇨감</b>이 남아 찝찝해요</div></div>
+      <div class="it"><span class="ck fx-nopse"><span class="fx-pseudo" style="block-size:19px;border-block-end-color:rgb(166, 209, 150);border-block-end-style:solid;border-block-end-width:3px;border-block-start-color:rgb(166, 209, 150);border-block-start-style:solid;border-block-start-width:0px;border-bottom-color:rgb(166, 209, 150);border-bottom-style:solid;border-bottom-width:3px;border-image-width:1;border-inline-end-color:rgb(166, 209, 150);border-inline-end-style:solid;border-inline-end-width:3px;border-inline-start-color:rgb(166, 209, 150);border-inline-start-style:solid;border-inline-start-width:0px;border-left-color:rgb(166, 209, 150);border-left-style:solid;border-left-width:0px;border-right-color:rgb(166, 209, 150);border-right-style:solid;border-right-width:3px;border-top-color:rgb(166, 209, 150);border-top-style:solid;border-top-width:0px;bottom:10px;box-sizing:content-box;display:block;height:19px;inline-size:11px;inset-block-end:10px;inset-block-start:8px;inset-inline-end:13px;inset-inline-start:13px;left:13px;perspective-origin:7px 11px;position:absolute;right:13px;top:8px;transform:matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);transform-origin:7px 11px;width:11px;"></span></span><div>자기 전 소변을 봐야 하는 <b>강박</b>이 있어요</div></div>
+    </div>
+    <div class="src">* 실제 고객 리뷰 · Q&amp;A 데이터 기반</div>
+  </div>
+  <div class="fade d2l"></div>
+  <div class="lt end">
+    <div class="q"><span class="ac">1개</span> 이상 해당된다면,<br>방광이 보내는 <span class="ac">신호</span>일 수 있습니다</div>
+  </div>
+</section>
+
+<!-- ===== 06 의사·약사·한의사 ===== -->
+<section class="pd L" id="s06">
+  <div class="lab"><i></i>Co-designed Formula<i></i></div>
+  <div class="l1">의사·약사·한의사,</div>
+  <div class="hh">세 사람이 같은 테이블에<br><span class="ac">앉은 이유</span></div>
+  <div class="lead">원료를 사다 섞은 조합이 아니라,<br>세 전문가가 함께 완성한 하나의 포뮬러입니다.</div>
+
+  <div class="role">
+    <div class="ph"><img src="s06_01.png" style="object-position: 50% 50% !important; width: 1000px !important; height: 820px !important; object-fit: fill !important; mask-image: none !important;" alt="의사" class="fx-done"><div class="cap">연출 이미지</div></div>
+    <div class="tx">
+      <div class="pill">의사<em>DOCTOR</em></div>
+      <div class="l1">임상 결과의</div><div class="l2">방광 매커니즘 설계</div>
+      <div class="card">
+        <div class="pp"><div class="j">Cochrane Database Syst Rev · 2023<b>메타분석</b></div><div class="v">크랜베리 무작위 대조시험 50건 · 8,857명 분석</div><div class="k">반복 요로감염 여성의 증상성 요로감염 위험 <em>26% 감소</em> (RR 0.74)</div><div class="pm">Williams G et al. · PMID 37947276</div></div>
+        <div class="pp"><div class="j">Phytochemistry · 2005<b>작용 기전</b></div><div class="v">크랜베리 A형 PAC의 대장균 부착 억제</div><div class="k">A형 PAC <em>60μg/mL</em>에서 부착 억제 · 섭취 후 소변에서도 활성 확인</div><div class="pm">Howell AB et al. · PMID 16055161</div></div>
+        <div class="pp"><div class="j">Urologia Internationalis · 2015<b>12개월 RCT</b></div><div class="v">호박씨 무작위 위약대조 연구 (GRANU) · 남성 1,431명</div><div class="k">호박씨 섭취군 증상점수 반응률 <em>58.5%</em> (위약 47.3%)</div><div class="pm">Vahlensieck W et al. · PMID 25196580</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="ph"><img src="s06_02.png" style="object-position: 50% 50% !important; width: 1000px !important; height: 820px !important; object-fit: fill !important; mask-image: none !important;" alt="약사" class="fx-done"><div class="cap">연출 이미지</div></div>
+    <div class="tx">
+      <div class="pill">약사<em>PHARMACIST</em></div>
+      <div class="l1">서양·한의학 성분 배합</div><div class="l2">병용 가능성 검증</div>
+      <div class="card">
+        <div class="pp"><div class="j">J Clin Pharmacol · 2009<b>이중맹검</b></div><div class="v">와파린 복용자 30명 · 크랜베리 병용 시험</div><div class="k">혈중 와파린 농도 <em>변화 없음</em> · 약동학적 상호작용 배제</div><div class="pm">Ansell J et al. · PMID 19553405</div></div>
+        <div class="pp"><div class="j">Expert Rev Anti Infect Ther · 2019<b>이중맹검</b></div><div class="v">유산균 + 크랜베리 병용 · 26주 무작위 연구</div><div class="k">요로감염 재발 <em>9.1%</em> (위약 33.3%)</div><div class="pm">Koradia P et al. · PMID 31516055</div></div>
+        <div class="pp"><div class="j">Acta Obstet Gynecol Scand · 2007<b>임상시험</b></div><div class="v">비타민C 100mg 매일 섭취 · 임신부 대상</div><div class="k">요로감염 발생 <em>12.7%</em> (비섭취군 29.1%)</div><div class="pm">Ochoa-Brust GJ et al. · PMID 17611821</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="role">
+    <div class="ph"><img src="s06_03.png" style="object-position: 50% 50% !important; width: 1000px !important; height: 820px !important; object-fit: fill !important; mask-image: none !important;" alt="한의사" class="fx-done"><div class="cap">연출 이미지</div></div>
+    <div class="tx">
+      <div class="pill">한의사<em>KOREAN MEDICINE DOCTOR</em></div>
+      <div class="l1">한방 원료 본초학 관점</div><div class="l2">정밀 조율</div>
+      <div class="card">
+        <div class="pp"><div class="j">Naunyn-Schmiedeberg's Arch Pharmacol · 2026<b>황금 黃芩</b></div><div class="v">황금 유래 바이칼린 · 방광 염증 동물 연구</div><div class="k">배뇨 빈도·방광 조직 손상 <em>개선</em>, 염증성 사이토카인 감소</div><div class="pm">Yang D et al. · PMID 41296034</div></div>
+        <div class="pp"><div class="j">Lett Appl Microbiol · 2017<b>계피 桂皮</b></div><div class="v">계피 성분 신남알데하이드 · 요로 대장균 동물 연구</div><div class="k">방광·요도의 대장균 집락 <em>유의하게 감소</em></div><div class="pm">Narayanan A et al. · PMID 28063174</div></div>
+        <div class="pp"><div class="j">J Ethnopharmacol · 2026<b>산수유 山茱萸</b></div><div class="v">예로부터 유뇨·빈뇨에 써 온 본초, 산수유</div><div class="k">산수유 이리도이드 배당체의 <em>항염·진통 작용</em> 확인 (동물·세포 연구)</div><div class="pm">Wang J et al. · PMID 42772619</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fn">※ 원료 관련 해외 문헌이며, 리뉴시아 제품으로 진행한 연구가 아닙니다.<br>※ 복용 중인 약이 있다면 섭취 전 전문가와 상담해 주세요.<br>※ 의사·약사·한의사의 연구·개발 참여 사실을 안내하며, 제품을 추천·보증하는 내용이 아닙니다.</div>
+</section>
+
+<!-- ===== 07 왜 먹어도 똑같을까 ===== -->
+<section class="pd" id="s07">
+  <div class="lt" style="padding-top:120px;padding-bottom:30px"><div class="lab"><i></i>Our Starting Point<i></i></div></div>
+  <div class="ph"><img src="s07_01.png" alt="" class="fx-done" style="width: 1000px !important; height: 1000px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><div class="tt"><div class="l0">먹어도</div><div class="big">왜 똑같을까,</div></div></div>
+  <div class="dk on-d pb">
+    <div class="ask">이런 마음, 한 번쯤 있으셨나요</div>
+    <div class="qm">“</div><div class="qt">볼일 보고 나와도<br>개운하지 않아요</div>
+    <div class="qm">“</div><div class="qt">밤마다 깨서 화장실 가느라<br>아침이 피곤해요</div>
+    <div class="qm">“</div><div class="qt">크랜베리도 먹어봤는데<br>그대로예요</div>
+    <div class="start2"><div class="vl"></div><div class="qmk">“</div><div class="sq">먹어도 왜 똑같을까,<br>이 단순하면서도 날카로운 질문이<br><span class="hl">리뉴시아의 시작점</span>이었습니다.</div><div class="lead">단일 성분의 한계 앞에서,<br>우리는 답을 나눠 찾기로 했습니다.</div></div>
+  </div>
+</section>
+
+<!-- ===== 08 환불보장 (전부 DARK) ===== -->
+<section class="pd" id="s08">
+  <div class="dk on-d pt">
+    <div class="lab"><i></i>Risk Free<i></i></div>
+    <div class="l1">리뉴시아는 자신 있습니다.</div>
+    <div class="hh">먹어보고 <span class="ac">결정하세요</span></div>
+    <div class="badge">배송 후에도 환불 보장</div>
+    <div class="stagebtl"><img src="s08_01.png" alt="리뉴시아 약통" class="fx-done" style="width: 1000px !important; height: 1000px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div>
+    <div class="terms">
+      <div class="cardD">
+        <div class="rw"><div class="k">기간</div><div class="v">배송 완료 후 10일 이내<small>배송 완료일 기준</small></div></div>
+        <div class="rw"><div class="k">대상</div><div class="v">리뉴시아 공식몰에서 2세트 이상 구매한 고객 전원</div></div>
+        <div class="rw"><div class="k">방법</div><div class="v">① 주문 페이지에서 반품 접수<br>② 개봉 제품 포함 전 제품 반송<br>③ 입고 확인 후 즉시 환불</div></div>
+      </div>
+      <div class="fn">※ 환불은 배송비 제외 후 진행되며, 상세 조건은 공지사항을 참조해 주세요.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 09 공식몰 한정혜택 (이전 디자인, 배경만 초록) ===== -->
+<section class="pd" id="s09">
+  <div class="glow"></div>
+  <div class="pt1">리뉴시아 10차 생산 기념</div>
+  <div class="pt2">기간 한정 최대 할인</div>
+  <div class="pt3">LAUNCH PROMOTION</div>
+  <div class="cards">
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib0)"></polygon></svg><b>55<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="chips"><span>★ 최대 할인 ★</span><span>재구매 최다</span></div><div class="body"><div class="pim"><img src="s09_01.png" alt="" class="fx-done" style="width: 176px !important; height: 160px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>4+2 Box</b></div><div class="rw1"><span>정상가</span><span>523,200원</span></div><div class="rw2"><span>프로모션 특가</span><b>238,800원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>39,800원</b></div></div>
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib1)"></polygon></svg><b>52<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="chips"><span>★ BEST ★</span><span>가성비 구성</span></div><div class="body"><div class="pim"><img src="s09_02.png" alt="" class="fx-done" style="width: 176px !important; height: 166px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>2+1 Box</b></div><div class="rw1"><span>정상가</span><span>261,600원</span></div><div class="rw2"><span>프로모션 특가</span><b>125,700원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>41,900원</b></div></div>
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib2)"></polygon></svg><b>50<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="body"><div class="pim"><img src="s09_03.png" alt="" class="fx-done" style="width: 144px !important; height: 176px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>2 Box</b></div><div class="rw1"><span>정상가</span><span>174,400원</span></div><div class="rw2"><span>프로모션 특가</span><b>86,200원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>43,100원</b></div></div>
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib3)"></polygon></svg><b>48<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="body"><div class="pim"><img src="s09_04.png" alt="" class="fx-done" style="width: 115px !important; height: 176px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>1 Box</b></div><div class="rw1"><span>정상가</span><span>87,200원</span></div><div class="rw2"><span>프로모션 특가</span><b>44,800원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>44,800원</b></div></div>
+  </div>
+  <div class="pnote">※ 표기 가격은 프로모션 기준이며 차수에 따라 변동될 수 있습니다.</div>
+</section>
+
+<!-- ===== 10 문제점 (토모젠형, 논문) ===== -->
+<section class="pd" id="s10">
+  <div class="lab metal">Why It Keeps Coming Back</div>
+  <div class="l1" style="color:rgba(255,255,255,.72)">방광 불편함이 반복되는 이유</div>
+  <div class="hh">한 가지 성분에 기댄 관리</div>
+  <div class="kv"><img src="s10_01.png" alt="" class="fx-done" style="width: 1000px !important; height: 566px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div>
+  <div class="study">
+    <div class="sl">COMBINATION STUDY</div>
+    <div class="stt">연구에서 확인된 <b>단일 성분의 한계</b></div>
+    <div class="paper"><img src="s10_02.jpg" alt="Montorsi F et al. Eur Urol 2016"></div>
+    <div class="quote">
+      <div class="en">“The use of nutritional supplements might reduce the risk of recurrent UTIs. However, <mark>the role of supplements taken as single agents appears to be limited.</mark> We hypothesized that <mark>a combination of cranberries, Lactobacillus rhamnosus, and vitamin C</mark> might produce a clinical benefit due to their additive or synergistic effects.”</div>
+      <div class="ko">영양 보충제는 재발성 요로감염 위험을 줄일 수 있지만, <em>단일 성분 보충제의 역할은 제한적</em>인 것으로 보입니다. 연구진은 <b>크랜베리·유산균·비타민C의 조합</b>이 상가·상승 효과로 임상적 이점을 낼 수 있다고 보았습니다.</div>
+    </div>
+    <div class="cite">*출처: Montorsi F et al. Effectiveness of a Combination of Cranberries, Lactobacillus rhamnosus, and Vitamin C for the Management of Recurrent Urinary Tract Infections in Women. Eur Urol. 2016;70(6):912-915. PMID 27283213</div>
+  </div>
+  <div class="say"><div class="qm">“</div><div class="a">같은 크랜베리라도 결과는 달랐고,</div><div class="b">단일 성분 접근에는 한계가 있습니다</div></div>
+  <div class="ev">
+    <div class="evc"><span class="tg">복합</span><span class="j">Expert Rev Anti Infect Ther · 2019</span><div class="t">유산균 + 크랜베리 병용 · 26주 이중맹검 무작위 연구</div><div class="k">요로감염 재발 <em>9.1%</em> (위약 33.3%)</div><div class="pm">Koradia P et al. · 폐경 전 여성 · PMID 31516055</div></div>
+    <div class="evc"><span class="tg">복합</span><span class="j">Advances in Urology · 2020</span><div class="t">호박씨 + 크랜베리 복합 원료 · 3개월 다기관 연구</div><div class="k">배뇨 증상점수(IPSS) <em>15 → 9</em>로 낮아짐</div><div class="pm">Nemr E et al. · 40세 이상 남성 128명 · 대두 이소플라본 포함 · PMID 32215007</div></div>
+    <div class="evc"><span class="tg s">단일</span><span class="j">Cochrane Database Syst Rev · 2023</span><div class="t">크랜베리 단독 · 무작위 대조시험 50건 메타분석</div><div class="k">반복 요로감염 여성은 위험 <em>26% 감소</em>, 요양시설 고령자·잔뇨가 남는 성인은 뚜렷한 차이 없음</div><div class="pm">Williams G et al. · PMID 37947276</div></div>
+  </div>
+  <div class="so"><div class="a">그래서 리뉴시아는</div><div class="b">처음부터 <span class="ac">세 가지를 함께</span><br>설계했습니다</div><div class="c">단일 성분이 아닌, 함께 담은 배합</div></div>
+  <div class="dia"><div class="fx-dia" style="position: relative; width: 880px; height: 760px; display: block;"><svg class="fx-dialines" xmlns="http://www.w3.org/2000/svg" width="880" height="760" viewBox="0 0 880 760" style="position:absolute;left:0;top:0;display:block"><g stroke="#A6D196" stroke-width="2" stroke-dasharray="6 8" opacity=".6" fill="none"><line x1="440" y1="236" x2="440" y2="294"></line><line x1="276" y1="506" x2="350" y2="458"></line><line x1="604" y1="506" x2="530" y2="458"></line></g></svg><div class="fx-circ" style="position: absolute; box-sizing: border-box; left: 345px; top: 37px; width: 190px; height: 190px; border-radius: 50%; border: 2px solid rgba(166, 209, 150, 0.55); background: transparent;"></div><img class="fx-done" src="s10_03.png" alt="" style="position: absolute; display: block; left: 354px; top: 46px; width: 172px; height: 172px;"><div class="fx-txt" style="position: absolute; left: 560px; top: 96px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -1px; color: rgb(255, 255, 255); line-height: 1.3; margin: 0px; padding: 0px;">유산균</div><div class="fx-txt" style="position: absolute; left: 560px; top: 141px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 19px; font-weight: 400; letter-spacing: 0px; color: rgba(255, 255, 255, 0.55); line-height: 1.3; margin: 0px; padding: 0px;">17종혼합유산균-D2</div><div class="fx-circ" style="position: absolute; box-sizing: border-box; left: 95px; top: 465px; width: 190px; height: 190px; border-radius: 50%; border: 2px solid rgba(166, 209, 150, 0.55); background: transparent;"></div><img class="fx-done" src="s10_04.png" alt="" style="position: absolute; display: block; left: 104px; top: 474px; width: 172px; height: 172px;"><div class="fx-txt" style="position: absolute; left: 136.5px; top: 662px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -1px; color: rgb(255, 255, 255); line-height: 1.3; margin: 0px; padding: 0px;">크랜베리</div><div class="fx-txt" style="position: absolute; left: 84.25px; top: 707px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 19px; font-weight: 400; letter-spacing: 0px; color: rgba(255, 255, 255, 0.55); line-height: 1.3; margin: 0px; padding: 0px;">크랜베리N호박씨복합추출물</div><div class="fx-circ" style="position: absolute; box-sizing: border-box; left: 595px; top: 465px; width: 190px; height: 190px; border-radius: 50%; border: 2px solid rgba(166, 209, 150, 0.55); background: transparent;"></div><img class="fx-done" src="s10_05.png" alt="" style="position: absolute; display: block; left: 604px; top: 474px; width: 172px; height: 172px;"><div class="fx-txt" style="position: absolute; left: 649.75px; top: 662px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -1px; color: rgb(255, 255, 255); line-height: 1.3; margin: 0px; padding: 0px;">호박씨</div><div class="fx-txt" style="position: absolute; left: 584.25px; top: 707px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 19px; font-weight: 400; letter-spacing: 0px; color: rgba(255, 255, 255, 0.55); line-height: 1.3; margin: 0px; padding: 0px;">크랜베리N호박씨복합추출물</div><div class="fx-circ" style="position: absolute; box-sizing: border-box; left: 338.75px; top: 298.75px; width: 202.5px; height: 202.5px; border-radius: 50%; border: 2.5px solid rgb(166, 209, 150); background: radial-gradient(120px at 98.75px 88.75px, rgb(45, 74, 53) 0%, rgb(19, 32, 22) 100%);"></div><div class="fx-txt" style="position: absolute; left: 365.5px; top: 353.5px; white-space: nowrap; font-family: &quot;Cormorant Garamond&quot;, Georgia, serif; font-size: 40px; font-weight: 600; letter-spacing: 0px; color: rgb(166, 209, 150); line-height: 1.3; margin: 0px; padding: 0px;">Renewsia</div><div class="fx-txt" style="position: absolute; left: 390px; top: 407px; white-space: nowrap; font-family: Pretendard, sans-serif; font-size: 21px; font-weight: 600; letter-spacing: 0px; color: rgb(255, 255, 255); line-height: 1.3; margin: 0px; padding: 0px;">한 알에 함께</div></div></div>
+  <div class="fn">※ 원료 관련 해외 문헌이며, 리뉴시아 제품으로 진행한 연구가 아닙니다. 각 연구의 원료 구성·섭취량은 리뉴시아와 다릅니다.</div>
+</section>
+
+<!-- ===== 11 필수원료 3가지 (유산균·크랜베리·호박씨) ===== -->
+<section class="pd D" id="s11">
+  <div class="lab"><i></i>Essential 3<i></i></div>
+  <div class="l1">리뉴시아의 중심이 되는</div>
+  <div class="hh"><span class="ac">필수 원료</span> 3가지</div>
+  <div class="ing"><div class="ci"><img src="s11_01.jpg" alt="유산균"></div><div><div class="pt">POINT 01 · PROBIOTICS</div><div class="nm">유산균</div><div class="am">17종혼합유산균-D2</div><div class="ds">17종의 유산균을 혼합한 원료를 크랜베리N호박씨복합추출물과 함께 <b>한 알에 담았습니다.</b></div></div></div>
+  <div class="ing rev"><div class="ci"><img src="s11_02.jpg" alt="크랜베리"></div><div><div class="pt">POINT 02 · CRANBERRY</div><div class="nm">크랜베리</div><div class="am">크랜베리N호박씨복합추출물</div><div class="ds">크랜베리의 <b>PAC(프로안토시아니딘)</b>은 유해균이 요로 내벽에 달라붙지 못하게 막는 방식으로 작용합니다.</div></div></div>
+  <div class="ing"><div class="ci"><img src="s11_03.jpg" alt="호박씨"></div><div><div class="pt">POINT 03 · PUMPKIN SEED</div><div class="nm">호박씨</div><div class="am">크랜베리N호박씨복합추출물</div><div class="ds">소변이 다 차기도 전에 시작되는 급박한 신호, 배뇨 후에도 전부 배출하지 못한 느낌. 과하게 긴장한 <b>배뇨근을 부드럽게 다독여</b> 깔끔한 배뇨를 돕습니다.</div></div></div>
+  <div class="core"><div class="a">CORE COMPLEX</div><div class="b">크랜베리N호박씨복합추출물 150mg</div><div class="c">1정당 · 특허 등록 원료(제10-2653689호)</div></div>
+</section>
+
+<!-- ===== 12 그 외 11가지 ===== -->
+<section class="pd D" id="s12">
+  <div class="lab"><i></i>With 11<i></i></div>
+  <div class="l1">필수 원료를 받쳐주는</div>
+  <div class="hh">그 외 <span class="ac">11가지</span> 원료</div>
+  <div class="grp"><div class="gt"><b>복합추출물을 함께 이루는 원료</b><span>COMPLEX · 5</span></div>
+    <div class="grid">
+      <div class="gi"><div class="ic"><img src="s12_01.png" alt="" class="fx-done" style="width: 88px !important; height: 88px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div><div class="n">민들레</div><div class="d">민들레추출분말</div></div></div>
+      <div class="gi"><div class="ic"><img src="s12_02.png" alt="" class="fx-done" style="width: 88px !important; height: 88px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div><div class="n">강황</div><div class="d">강황추출물</div></div></div>
+      <div class="gi"><div class="ic"><img src="s12_03.png" alt="" class="fx-done" style="width: 88px !important; height: 88px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div><div class="n">프로폴리스</div><div class="d">프로폴리스추출물분말</div></div></div>
+      <div class="gi"><div class="ic"><img src="s12_04.png" alt="" class="fx-done" style="width: 88px !important; height: 88px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div><div class="n">포도씨</div><div class="d">포도씨추출물</div></div></div>
+      <div class="gi"><div class="ic"><img src="s12_05.png" alt="" class="fx-done" style="width: 88px !important; height: 88px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div><div class="n">올리브잎</div><div class="d">올리브잎추출분말</div></div></div>
+    </div>
+  </div>
+  <div class="grp"><div class="gt"><b>함께 배합한 원료</b><span>SUPPORT · 6</span></div>
+    <div class="grid">
+      <div class="gi"><div class="ic ph"><img src="s12_06.jpg" alt="" class="fx-done" style="width: 96px !important; height: 96px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div><div class="n">비타민C</div><div class="d">1정당 50mg</div></div></div>
+      <div class="gi"><div class="ic t">黃芩</div><div><div class="n">황금</div><div class="d">황금 및 백출 추출분말</div></div></div>
+      <div class="gi"><div class="ic t">白朮</div><div><div class="n">백출</div><div class="d">황금 및 백출 추출분말</div></div></div>
+      <div class="gi"><div class="ic t">桂皮</div><div><div class="n">계피</div><div class="d">계피추출분말</div></div></div>
+      <div class="gi"><div class="ic t">山茱萸</div><div><div class="n">산수유</div><div class="d">산수유추출분말</div></div></div>
+      <div class="gi"><div class="ic t">甘苔</div><div><div class="n">감태</div><div class="d">감태추출분말</div></div></div>
+    </div>
+  </div>
+  <div class="fn">※ 제품 원재료명 기준입니다. 강황·민들레는 복합추출물 외에 추출분말로도 들어갑니다.</div>
+</section>
+
+<!-- ===== 13 조성물 특허 ===== -->
+<section class="pd D" id="s13">
+  <div class="lab"><i></i>Patent<i></i></div>
+  <div class="l1">배뇨기능 개선 조성물</div>
+  <div class="hh"><span class="ac">특허 등록</span> 원료 사용</div>
+  <div class="cert"><img src="s13_01.jpg" alt="특허증"></div>
+  <div class="cardD">
+    <div class="r"><span>특허번호</span><b class="big">제10-2653689호</b></div>
+    <div class="r"><span>등록일</span><b>2024.03.28</b></div>
+    <div class="r"><span>원료</span><b>크랜베리N호박씨 복합추출물</b></div>
+    <div class="r"><span>1정당 함량</span><b>150mg</b></div>
+  </div>
+  <div class="fn">※ 특허 등록은 원료 조성물에 대한 사실이며, 제품의 효능·효과를 보증하지 않습니다.</div>
+</section>
+
+<!-- ===== 14 원료계열 해외연구 (이전 디자인 GIF, 색만 조정) ===== -->
+<section class="pd" id="s14">
+  <div class="fade d2l"></div>
+  <div class="gifs"><img src="s14_01.gif" alt="STUDY 01"><img class="g2" src="s14_02.gif" alt="STUDY 02"></div>
+</section>
+
+<!-- ===== 15 저가 타협 X ===== -->
+<section class="pd" id="s15">
+  <div class="lt pt">
+    <div class="lab"><i></i>Why This Price<i></i></div>
+    <div class="l1" style="font-size:44px">저가 배합과 타협하지 않겠다는 신념 아래</div>
+    <div class="hh" style="font-size:64px">판촉 비용을 덜어낸 자리에<br><span class="ac">원료와 검증 비용</span>을 채웠습니다</div>
+    <div class="cmp">
+      <div><div class="cl">일반적인 판매 구조 · 덜어낸 비용</div><div class="stack"><div class="g1" style="flex:1.3">유통<br>수수료</div><div class="g1" style="flex:1.4">광고비</div><div class="g2" style="flex:1.1">판촉<br>사은품</div><div class="g1" style="flex:.8">원료<br>원가</div><div class="g1" style="flex:.5">검증</div></div></div>
+      <div><div class="cl r">리뉴시아 · 채운 비용</div><div class="stack"><div class="r1" style="flex:2">원료 원가<br><span style="font-weight:500;font-size:19px">특허 복합추출물 · 부원료</span></div><div class="r2" style="flex:1.6">품질 검증<br><span style="font-weight:500;font-size:19px">성적서 · 원산지 · 안전성</span></div><div class="r3" style="flex:1">유통·운영</div></div></div>
+      <div class="fn">※ 이해를 돕기 위한 개념도이며, 실제 비용 비율과는 다를 수 있습니다.</div>
+    </div>
+  </div>
+  <div class="fade l2d" style="margin-top:110px"></div>
+  <div class="dk on-d pb">
+    <div class="end">저가 제품 서너 통을 돌아 다시 원점으로 오는 길보다,<br><b>의학적으로 설계된 한 통</b>이 결국 더 경제적입니다.</div>
+  </div>
+</section>
+
+<!-- ===== 16 서류로 증명 + 제조시설 내부 ===== -->
+<section class="pd" id="s16">
+  <div class="dk on-d pt">
+    <div class="lab"><i></i>Proof · Quality<i></i></div>
+    <div class="l1">말이 아닌,</div>
+    <div class="hh"><span class="ac">서류로</span> 증명합니다</div>
+    <div class="lead">리뉴시아에 들어가는 원료 11종의 서류 목록입니다.</div>
+    <div class="docs">
+      <div class="dr"><div class="n">01</div><div class="t">크랜베리N호박씨복합추출물</div><div class="d">특허청 등록 · 한글 표시사항</div></div>
+      <div class="dr"><div class="n">02</div><div class="t">비타민C 크리스탈린</div><div class="d">원료 서류</div></div>
+      <div class="dr"><div class="n">03</div><div class="t">17종혼합유산균-D2</div><div class="d">시험성적서</div></div>
+      <div class="dr"><div class="n">04</div><div class="t">황금추출분말</div><div class="d">시험성적서</div></div>
+      <div class="dr"><div class="n">05</div><div class="t">백출추출분말</div><div class="d">시험성적서</div></div>
+      <div class="dr"><div class="n">06</div><div class="t">계피추출분말</div><div class="d">시험성적서 · 원산지 증명서</div></div>
+      <div class="dr"><div class="n">07</div><div class="t">민들레추출분말</div><div class="d">시험성적서 · 원산지 증명서</div></div>
+      <div class="dr"><div class="n">08</div><div class="t">산수유추출분말</div><div class="d">시험성적서 · 원산지 증명서</div></div>
+      <div class="dr"><div class="n">09</div><div class="t">감태추출분말</div><div class="d">시험성적서</div></div>
+      <div class="dr"><div class="n">10</div><div class="t">강황추출물분말</div><div class="d">시험성적서 · 수입 서류</div></div>
+      <div class="dr"><div class="n">11</div><div class="t">포도씨추출물</div><div class="d">시험성적서 · 수입신고 서류</div></div>
+    </div>
+    <div class="certs">
+      <div><b>HACCP</b><span>안전관리인증 시설</span></div>
+      <div><b>ISO 9001</b><span>품질경영</span></div>
+      <div><b>ISO 14001</b><span>환경경영</span></div>
+      <div><b>배상책임보험</b><span>생산물배상 가입</span></div>
+    </div>
+    <div class="fn">※ 원료명은 제품 원재료명 기준입니다. 서류 원본은 요청 시 확인하실 수 있습니다.</div>
+  </div>
+  <div class="fade d2l" style="margin-top:90px"></div>
+  <div class="lt pb fac">
+    <div class="lab"><i></i>Manufacturing Record<i></i></div>
+    <div class="l1">만드는 곳까지</div>
+    <div class="hh">직접 <span class="ac">보여드립니다</span></div>
+    <div class="photos"><figure><img src="s16_01.jpg" alt="" class="fx-done" style="width: 422px !important; height: 300px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><figcaption>병 충진실</figcaption></figure><figure><img src="s16_02.jpg" alt="" class="fx-done" style="width: 422px !important; height: 300px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><figcaption>병 충진실</figcaption></figure><figure><img src="s16_03.jpg" alt="" class="fx-done" style="width: 422px !important; height: 300px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><figcaption>위생 전실</figcaption></figure><figure><img src="s16_04.jpg" alt="" class="fx-done" style="width: 422px !important; height: 300px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><figcaption>위생 전실</figcaption></figure></div>
+    <div class="lead">리뉴시아는 HACCP 인증을 받은 ㈜상상바이오 시설에서 제조됩니다.<br>(ISO 9001 · 14001)</div>
+  </div>
+</section>
+
+<!-- ===== 17 단일 성분 영양제 비교 ===== -->
+<section class="pd L" id="s17">
+  <div class="lab"><i></i>Compare<i></i></div>
+  <div class="l1">단일 성분 영양제와</div>
+  <div class="hh"><span class="ac">비교해 보세요</span></div>
+  <div class="tb">
+    <div class="tr hd"><div class="k">항목</div><div class="a">일반 크랜베리<br>단일 제품</div><div class="b">리뉴시아</div></div>
+    <div class="tr"><div class="k">설계 주체</div><div class="a">원료사 조합</div><div class="b">의·약·한 3인 공동 설계</div></div>
+    <div class="tr"><div class="k">핵심 원료</div><div class="a">크랜베리 단일</div><div class="b">크랜베리N호박씨복합추출물<small>특허 등록 원료</small></div></div>
+    <div class="tr"><div class="k">함께 담긴 원료</div><div class="a">제품마다 다름</div><div class="b">비타민C · 17종혼합유산균<small>+ 부원료 6종</small></div></div>
+    <div class="tr"><div class="k">원료 서류</div><div class="a">구매 전 확인 필요</div><div class="b">원료 11종 서류 목록 공개</div></div>
+    <div class="tr"><div class="k">섭취 가이드</div><div class="a">불명확</div><div class="b">상태별 명확 제시</div></div>
+  </div>
+</section>
+
+<!-- ===== 18 Q&A ===== -->
+<section class="pd L" id="s18">
+  <div class="lab"><i></i>Q&amp;A<i></i></div>
+  <div class="l1">하루 한 알,</div>
+  <div class="hh"><span class="ac">속 편하게</span></div>
+  <div class="lead">구매 전 가장 많이 묻는 질문을 정리했습니다.</div>
+  <div class="qa">
+    <div class="q"><small>QUESTION</small>약이랑 같이 먹어도 되나요?</div>
+    <div class="a"><small>RENEWSIA</small>성분 병용 가능성은 약사가 검토했어요. 다만 복용 중인 약이 있다면 섭취 전 전문가와 상담해 주세요.<em>크랜베리는 와파린 등 일부 약과의 상호작용이 알려져 있습니다.</em></div>
+    <div class="gap"></div>
+    <div class="q"><small>QUESTION</small>속 쓰릴까 봐 걱정돼요</div>
+    <div class="a"><small>RENEWSIA</small>충분한 물과 함께, 하루 중 편한 시간에 드세요. 매일 같은 시간에 드시면 잊지 않고 이어가기 좋습니다.<em>특이체질이나 알레르기(프로폴리스 등)가 있다면 원재료를 먼저 확인해 주세요.</em></div>
+    <div class="gap"></div>
+    <div class="q"><small>QUESTION</small>성별 관계 없이 먹어도 상관 없을까요?</div>
+    <div class="a"><small>RENEWSIA</small>성별 구분 없이 섭취 가능합니다. 방광 건강과 배뇨 편의를 돕는 성분 조합으로 설계되어 남녀 모두 섭취하실 수 있습니다.</div>
+  </div>
+</section>
+
+<!-- ===== 19 상태별 가이드 ===== -->
+<section class="pd L" id="s19">
+  <div class="lab"><i></i>Recommended Use<i></i></div>
+  <div class="l1">"몇 알을 어떻게 먹죠?"</div>
+  <div class="hh"><span class="ac">더 이상 헷갈리지 않도록</span></div>
+  <div class="lead">리뉴시아 상태별 섭취 가이드</div>
+  <div class="tab">
+    <div class="hd"><span class="md">일상 케어</span><span class="when">아무 때나 편하게</span></div>
+    <div class="ct"><b>1</b><span>정 / 1일</span></div>
+    <div class="ds"><b>평소 예방과 유지 관리</b>가 목적이라면 하루 1정이면 충분합니다. 물과 함께, 같은 시간대에 드시면 잊지 않고 챙기기 좋습니다.</div>
+    <div class="tl fx-nopse"><span class="fx-pseudo" style="background-color:rgb(221, 230, 216);block-size:2px;border-block-end-color:rgb(19, 32, 22);border-block-end-style:none;border-block-end-width:0px;border-block-start-color:rgb(19, 32, 22);border-block-start-style:none;border-block-start-width:0px;border-bottom-color:rgb(19, 32, 22);border-bottom-style:none;border-bottom-width:0px;border-image-width:1;border-inline-end-color:rgb(19, 32, 22);border-inline-end-style:none;border-inline-end-width:0px;border-inline-start-color:rgb(19, 32, 22);border-inline-start-style:none;border-inline-start-width:0px;border-left-color:rgb(19, 32, 22);border-left-style:none;border-left-width:0px;border-right-color:rgb(19, 32, 22);border-right-style:none;border-right-width:0px;border-top-color:rgb(19, 32, 22);border-top-style:none;border-top-width:0px;bottom:89.7969px;box-sizing:content-box;display:block;height:2px;inline-size:680px;inset-block-end:89.7969px;inset-block-start:19px;inset-inline-end:40px;inset-inline-start:40px;left:40px;min-block-size:0px;min-height:0px;min-inline-size:0px;min-width:0px;perspective-origin:340px 1px;position:absolute;right:40px;top:19px;transform:none;transform-origin:340px 1px;width:680px;"></span><div class="on"><i></i>아침 기상 후<br>물 한 컵과 함께</div><div><i></i>점심</div><div><i></i>저녁</div></div>
+  </div>
+  <div class="tab">
+    <div class="hd"><span class="md f">집중 케어</span><span class="when">석식 후 추가로</span></div>
+    <div class="ct"><b>2</b><span>정 / 1일</span></div>
+    <div class="ds"><b>병원 처방 받은지 얼마 되지 않았거나, 증상으로 인해 스트레스를 받을 때.</b> 저녁 식사 후 추가로 1정 더 드시면 좋습니다.</div>
+    <div class="tl fx-nopse"><span class="fx-pseudo" style="background-color:rgb(221, 230, 216);block-size:2px;border-block-end-color:rgb(19, 32, 22);border-block-end-style:none;border-block-end-width:0px;border-block-start-color:rgb(19, 32, 22);border-block-start-style:none;border-block-start-width:0px;border-bottom-color:rgb(19, 32, 22);border-bottom-style:none;border-bottom-width:0px;border-image-width:1;border-inline-end-color:rgb(19, 32, 22);border-inline-end-style:none;border-inline-end-width:0px;border-inline-start-color:rgb(19, 32, 22);border-inline-start-style:none;border-inline-start-width:0px;border-left-color:rgb(19, 32, 22);border-left-style:none;border-left-width:0px;border-right-color:rgb(19, 32, 22);border-right-style:none;border-right-width:0px;border-top-color:rgb(19, 32, 22);border-top-style:none;border-top-width:0px;bottom:89.7969px;box-sizing:content-box;display:block;height:2px;inline-size:680px;inset-block-end:89.7969px;inset-block-start:19px;inset-inline-end:40px;inset-inline-start:40px;left:40px;min-block-size:0px;min-height:0px;min-inline-size:0px;min-width:0px;perspective-origin:340px 1px;position:absolute;right:40px;top:19px;transform:none;transform-origin:340px 1px;width:680px;"></span><div class="on"><i></i>아침 기상 후<br>물 한 컵과 함께</div><div><i></i>점심</div><div class="on"><i></i>저녁 식사 후<br>추가 1정</div></div>
+  </div>
+  <div class="fn">※ 권장 섭취량: 1일 1회 또는 1일 2회, 1회 1정 (제품 표시사항 기준)</div>
+</section>
+
+<!-- ===== 20 상품정보고시 ===== -->
+<section class="pd L" id="s20">
+  <div class="lab"><i></i>Product Information<i></i></div>
+  <div class="hh" style="font-size:56px;margin-top:24px">상품정보 제공고시</div>
+  <div class="gs">
+    <div class="gr"><div class="k">제품명</div><div class="v">리뉴시아</div></div>
+    <div class="gr"><div class="k">식품유형</div><div class="v">과실을 주원료로 하는 건강보조식품 G204, G1009</div></div>
+    <div class="gr"><div class="k">품목보고번호</div><div class="v">201904625221193</div></div>
+    <div class="gr"><div class="k">내용량</div><div class="v">600mg × 30정 (18g, 70kcal)</div></div>
+    <div class="gr"><div class="k">원재료명</div><div class="v">결정셀룰로스, 크랜베리N호박씨복합추출물[민들레추출분말, 크랜베리농축분말, 강황추출물, 호박씨추출분말, 프로폴리스추출물분말, 포도씨추출물, 올리브잎추출분말], 비타민C, 황금 및 백출 추출분말, 계피추출분말, 산수유추출분말, 감태추출분말, 강황추출물분말, 민들레추출분말, 히드록시프로필메틸셀룰로스, 카복시메틸셀룰로스칼슘, 이산화규소, 스테아린산마그네슘, 17종혼합유산균-디(D)2, 글리세린지방산에스테르<br><b class="al">우유, 대두 함유</b></div></div>
+    <div class="gr"><div class="k">권장 섭취량 및<br>섭취 방법</div><div class="v">1일 1회 또는 1일 2회, 1회 1정을 충분한 물과 함께 섭취</div></div>
+    <div class="gr"><div class="k">보관방법</div><div class="v">습기 및 직사광선을 피하여 건조하고 서늘한 곳에 보관</div></div>
+    <div class="gr"><div class="k">제조원</div><div class="v">제품 뒷면 표기 (ISO 9001·14001, HACCP 인증 시설)</div></div>
+    <div class="gr"><div class="k">유통전문판매원</div><div class="v">제품 뒷면 표기</div></div>
+    <div class="gr"><div class="k">포장재질</div><div class="v">용기 HDPE, 뚜껑 PP</div></div>
+    <div class="gr"><div class="k">소비자상담실</div><div class="v">070-8080-1423</div></div>
+    <div class="gr"><div class="k">주의사항</div><div class="v"><ol><li>섭취방법을 확인하시고 충분한 물과 함께 섭취하십시오.</li><li>특이체질 또는 알레르기(프로폴리스 등) 체질인 경우 개인에 따라 과민반응을 나타낼 수 있으므로 원재료를 확인한 후 섭취하십시오.</li><li>우유, 대두를 함유하고 있습니다.</li><li>용기 내 습기제거제(방습제)는 섭취하지 마십시오. 어린이의 손에 닿지 않도록 주의하십시오.</li><li>습기 및 직사광선을 피하여 건조하고 서늘한 곳에 보관하십시오.</li><li>임신·수유 중이거나 질환 치료 중, 복용 중인 약이 있다면 섭취 전 전문가와 상담하세요.</li></ol>※ 부정·불량식품 신고는 국번없이 1399</div></div>
+    <div class="gr"><div class="k">환불 정책</div><div class="v">배송 완료 후 10일 이내(배송 완료일 기준) 환불 가능</div></div>
+  </div>
+  <div class="disc">본 제품은 질병의 예방·치료를 위한 의약품이 아닙니다. 특허 등록은 원료 조성물에 대한 사실이며 제품의 효능·효과를 보증하지 않습니다. 인용 연구는 원료 계열 해외 선행 연구로 리뉴시아 제품으로 진행한 연구가 아니며 섭취 조건이 다릅니다. 리뷰는 실구매 고객의 개인 의견이며 개인에 따라 차이가 있을 수 있습니다.</div>
+</section>
+
+</body></html>
