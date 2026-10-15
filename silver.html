@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=1000">
-<title>리뉴시아 상세페이지 v5 실버 (Figma 가져오기용)</title>
+<title>리뉴시아 상세페이지 v6 실버 (Figma 가져오기용)</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&amp;family=Cormorant+Garamond:wght@600&amp;display=swap">
 <style>
@@ -561,6 +561,47 @@ body.m-silver{--m1:#FAFBFC;--m2:#C9CFD6;--m3:#808892;--m4:#E8EBEF;--metal:#C9D0D
 #s16 .fade{margin-top:-1px!important}
 #s16 .dk{padding-bottom:90px!important}
 
+
+/* ===== v6 ===== */
+/* 07 : 흰 분위기 영양제 사진 */
+#s07 .ph{background:#EAEEF7!important}
+#s07 .ph img{-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 130px,#000 100%)!important;mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 130px,#000 100%)!important}
+#s07 .ph .shade{position:absolute;left:0;right:0;bottom:-1px;height:340px;background:linear-gradient(180deg,rgba(19,32,22,0) 0%,rgba(19,32,22,.28) 26%,rgba(19,32,22,.72) 58%,rgba(19,32,22,.96) 84%,#132016 100%)}
+#s07 .ph .tt{top:96px!important;color:#132016!important;z-index:2}
+#s07 .ph .tt .l0{color:#4F5B53!important}
+#s07 .ph .tt .big{color:#132016!important}
+
+/* 09 : 크랜베리색 제거 → 딥그린 + 메탈 */
+#s09 .pc .chips span{color:#2C5226!important;border-color:rgba(76,140,62,.5)!important}
+#s09 .pc .nm b{color:#4C8C3E!important}
+#s09 .pc .rw2 b{color:#2C5226!important}
+#s09 .pc .band{background:linear-gradient(90deg,#2C5226 0%,#3F7A35 100%)!important;color:rgba(255,255,255,.86)!important}
+#s09 .pc .band b{color:var(--m1)!important}
+#s09 .pc .rib{background:linear-gradient(180deg,var(--m1) 0%,var(--m2) 45%,var(--m3) 100%)!important;color:#132016!important;box-shadow:none!important}
+
+/* 10 : 문제점 키비주얼 연출 */
+#s10 .kv .kvo{position:absolute;left:0;top:0;width:1000px;height:100%;text-align:left;pointer-events:none}
+#s10 .kvp{position:absolute;left:34px;top:74px;width:230px;height:428px;display:flex;flex-direction:column;box-sizing:border-box;padding:24px 22px;background:rgba(8,15,10,.93);border:1px solid rgba(166,209,150,.38);border-radius:18px}
+#s10 .kvp .k1{font-size:20px;font-weight:700;letter-spacing:.16em;color:#A6D196;line-height:1.3}
+#s10 .kvp .k2{font-size:30px;font-weight:800;letter-spacing:-.04em;color:#fff;margin-top:8px;line-height:1.25}
+#s10 .kvp .k3{margin-top:16px;padding-top:12px;border-top:1px solid rgba(166,209,150,.25)}
+#s10 .kvp .k3 .ri{position:relative;font-size:24px;font-weight:600;letter-spacing:-.03em;color:rgba(255,255,255,.88);line-height:1.5;padding:7px 0 7px 20px}
+#s10 .kvp .k3 .ri i{position:absolute;left:0;top:50%;width:9px;height:9px;margin-top:-4px;border-radius:50%;background:#A6D196}
+#s10 .kvp .k4{margin-top:auto;padding-top:14px;border-top:1px solid rgba(166,209,150,.25);font-size:26px;font-weight:800;letter-spacing:-.03em;color:#FFB36B;line-height:1.3}
+#s10 .kvp .k5{font-size:20px;color:rgba(255,255,255,.5);margin-top:6px;line-height:1.3}
+#s10 .kvr{position:absolute;left:420px;top:220px;width:140px;height:140px;box-sizing:border-box;border:2px dashed rgba(255,255,255,.85);border-radius:50%}
+#s10 .kvx{position:absolute;left:484px;top:284px;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.22)}
+#s10 .kvl{position:absolute;left:560px;top:289px;width:178px;height:2px;background:rgba(255,255,255,.75)}
+#s10 .kvd{position:absolute;left:734px;top:286px;width:8px;height:8px;border-radius:50%;background:#fff}
+#s10 .kvc{position:absolute;left:750px;top:196px;width:180px}
+#s10 .kvc .c1{font-size:20px;font-weight:700;letter-spacing:.16em;color:#FFB36B;line-height:1.3}
+#s10 .kvc .c2{font-size:32px;font-weight:800;letter-spacing:-.04em;line-height:1.22;color:#fff;margin-top:8px}
+#s10 .kvc .c3{font-size:22px;color:rgba(255,255,255,.72);line-height:1.45;margin-top:10px;letter-spacing:-.03em}
+#s10 .kvg{position:absolute;right:74px;font-size:20px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.72);line-height:1}
+#s10 .kvg.h{top:62px}
+#s10 .kvg.l{top:490px}
+#s10 .kvfn{position:absolute;left:36px;bottom:16px;font-size:20px;color:rgba(255,255,255,.45);letter-spacing:-.02em}
+
 </style><style id="fx-figma">.fx-nopse::before,.fx-nopse::after{content:none!important}
 #s01 .seal{filter:none!important;box-shadow:0 18px 30px rgba(0,0,0,.45);border-radius:50%}
 #s01 .seal .sheen{mix-blend-mode:normal!important}
@@ -689,7 +730,7 @@ body.m-silver{--m1:#FAFBFC;--m2:#C9CFD6;--m3:#808892;--m4:#E8EBEF;--metal:#C9D0D
 <!-- ===== 07 왜 먹어도 똑같을까 ===== -->
 <section class="pd" id="s07">
   <div class="lt" style="padding-top:120px;padding-bottom:30px"><div class="lab"><i></i>Our Starting Point<i></i></div></div>
-  <div class="ph"><img src="s07_01.png" alt="" class="fx-done" style="width: 1000px !important; height: 1000px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><div class="tt"><div class="l0">먹어도</div><div class="big">왜 똑같을까,</div></div></div>
+  <div class="ph"><img src="s07_01.png" alt="" class="fx-done" style="width: 1000px !important; height: 1000px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><div class="shade"></div><div class="tt"><div class="l0">먹어도</div><div class="big">왜 똑같을까,</div></div></div>
   <div class="dk on-d pb">
     <div class="ask">이런 마음, 한 번쯤 있으셨나요</div>
     <div class="qm">“</div><div class="qt">볼일 보고 나와도<br>개운하지 않아요</div>
@@ -725,10 +766,10 @@ body.m-silver{--m1:#FAFBFC;--m2:#C9CFD6;--m3:#808892;--m4:#E8EBEF;--metal:#C9D0D
   <div class="pt2">기간 한정 최대 할인</div>
   <div class="pt3">LAUNCH PROMOTION</div>
   <div class="cards">
-    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib0)"></polygon></svg><b>55<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="chips"><span>★ 최대 할인 ★</span><span>재구매 최다</span></div><div class="body"><div class="pim"><img src="s09_01.png" alt="" class="fx-done" style="width: 176px !important; height: 160px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>4+2 Box</b></div><div class="rw1"><span>정상가</span><span>523,200원</span></div><div class="rw2"><span>프로모션 특가</span><b>238,800원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>39,800원</b></div></div>
-    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib1)"></polygon></svg><b>52<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="chips"><span>★ BEST ★</span><span>가성비 구성</span></div><div class="body"><div class="pim"><img src="s09_02.png" alt="" class="fx-done" style="width: 176px !important; height: 166px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>2+1 Box</b></div><div class="rw1"><span>정상가</span><span>261,600원</span></div><div class="rw2"><span>프로모션 특가</span><b>125,700원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>41,900원</b></div></div>
-    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib2)"></polygon></svg><b>50<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="body"><div class="pim"><img src="s09_03.png" alt="" class="fx-done" style="width: 144px !important; height: 176px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>2 Box</b></div><div class="rw1"><span>정상가</span><span>174,400원</span></div><div class="rw2"><span>프로모션 특가</span><b>86,200원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>43,100원</b></div></div>
-    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A93A5A"></stop><stop offset="1" stop-color="#8C2341"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib3)"></polygon></svg><b>48<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="body"><div class="pim"><img src="s09_04.png" alt="" class="fx-done" style="width: 115px !important; height: 176px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>1 Box</b></div><div class="rw1"><span>정상가</span><span>87,200원</span></div><div class="rw2"><span>프로모션 특가</span><b>44,800원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>44,800원</b></div></div>
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib0" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgb(250, 251, 252)"></stop><stop offset="45%" stop-color="rgb(201, 207, 214)"></stop><stop offset="100%" stop-color="rgb(128, 136, 146)"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib0)"></polygon></svg><b>55<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="chips"><span>★ 최대 할인 ★</span><span>재구매 최다</span></div><div class="body"><div class="pim"><img src="s09_01.png" alt="" class="fx-done" style="width: 176px !important; height: 160px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>4+2 Box</b></div><div class="rw1"><span>정상가</span><span>523,200원</span></div><div class="rw2"><span>프로모션 특가</span><b>238,800원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>39,800원</b></div></div>
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgb(250, 251, 252)"></stop><stop offset="45%" stop-color="rgb(201, 207, 214)"></stop><stop offset="100%" stop-color="rgb(128, 136, 146)"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib1)"></polygon></svg><b>52<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="chips"><span>★ BEST ★</span><span>가성비 구성</span></div><div class="body"><div class="pim"><img src="s09_02.png" alt="" class="fx-done" style="width: 176px !important; height: 166px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>2+1 Box</b></div><div class="rw1"><span>정상가</span><span>261,600원</span></div><div class="rw2"><span>프로모션 특가</span><b>125,700원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>41,900원</b></div></div>
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgb(250, 251, 252)"></stop><stop offset="45%" stop-color="rgb(201, 207, 214)"></stop><stop offset="100%" stop-color="rgb(128, 136, 146)"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib2)"></polygon></svg><b>50<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="body"><div class="pim"><img src="s09_03.png" alt="" class="fx-done" style="width: 144px !important; height: 176px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>2 Box</b></div><div class="rw1"><span>정상가</span><span>174,400원</span></div><div class="rw2"><span>프로모션 특가</span><b>86,200원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>43,100원</b></div></div>
+    <div class="pc"><div class="rib"><svg class="fx-ribbg" xmlns="http://www.w3.org/2000/svg" width="96" height="112" viewBox="0 0 96 112" style="position:absolute;left:0;top:0;z-index:0;display:block"><defs><linearGradient id="fxrib3" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgb(250, 251, 252)"></stop><stop offset="45%" stop-color="rgb(201, 207, 214)"></stop><stop offset="100%" stop-color="rgb(128, 136, 146)"></stop></linearGradient></defs><polygon points="0,0 96,0 96,112 48,94.08 0,112" fill="url(#fxrib3)"></polygon></svg><b>48<small>%</small></b><span>OFF</span></div><div class="in"><div class="br">RENEWSIA</div><div class="body"><div class="pim"><img src="s09_04.png" alt="" class="fx-done" style="width: 115px !important; height: 176px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div><div class="info"><div class="nm">리뉴시아 <b>1 Box</b></div><div class="rw1"><span>정상가</span><span>87,200원</span></div><div class="rw2"><span>프로모션 특가</span><b>44,800원</b></div></div></div></div><div class="band"><span>1박스 당</span><b>44,800원</b></div></div>
   </div>
   <div class="pnote">※ 표기 가격은 프로모션 기준이며 차수에 따라 변동될 수 있습니다.</div>
 </section>
@@ -738,7 +779,7 @@ body.m-silver{--m1:#FAFBFC;--m2:#C9CFD6;--m3:#808892;--m4:#E8EBEF;--metal:#C9D0D
   <div class="lab metal">Why It Keeps Coming Back</div>
   <div class="l1" style="color:rgba(255,255,255,.72)">방광 불편함이 반복되는 이유</div>
   <div class="hh">한 가지 성분에 기댄 관리</div>
-  <div class="kv"><img src="s10_01.png" alt="" class="fx-done" style="width: 1000px !important; height: 566px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"></div>
+  <div class="kv"><img src="s10_01.png" alt="" class="fx-done" style="width: 1000px !important; height: 566px !important; object-fit: fill !important; object-position: 50% 50% !important; mask-image: none !important;"><div class="kvo"><div class="kvp"><div class="k1">SINGLE AGENT</div><div class="k2">단일 성분</div><div class="k3"><div class="ri"><i></i>크랜베리 단독</div><div class="ri"><i></i>유산균 단독</div><div class="ri"><i></i>비타민C 단독</div></div><div class="k4">역할은 제한적</div><div class="k5">Eur Urol · 2016</div></div><div class="kvr"></div><div class="kvx"></div><div class="kvl"></div><div class="kvd"></div><div class="kvc"><div class="c1">HOT ZONE</div><div class="c2">반복되는<br>불편</div><div class="c3">단일 성분만으론<br>남는 빈틈</div></div><div class="kvg h">HIGH</div><div class="kvg l">LOW</div><div class="kvfn">※ 논문 내용을 이해하기 쉽게 표현한 연출 이미지입니다.</div></div></div>
   <div class="study">
     <div class="sl">COMBINATION STUDY</div>
     <div class="stt">연구에서 확인된 <b>단일 성분의 한계</b></div>
